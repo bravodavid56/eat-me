@@ -1,0 +1,117 @@
+package com.example.bravodavid56.eatme.data;
+
+import android.net.Uri;
+import android.util.Log;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedOutputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Scanner;
+
+/**
+ * Created by bravodavid56 on 7/30/2017.
+ */
+
+public class NetworkUtils {
+    private static final String BASE_URL = "https://api.yelp.com/v3/businesses";
+
+    // for getting the access token from yelp api
+    // the combination of these make up the api key, see the examples below on
+    // how to use them
+    private static final String CLIENT_ID = "Qq2dCmbZGWbTeF8TQcsQkg";
+    private static final String CLIENT_SECRET = "lCgxUyFwqtt7l7kpWL4h7owQQpEp5BboKfO5Pl8WZ6dtRc92DjqfuGIshZrW0c72";
+
+
+    // this access token is just for testing
+    // try to use the getToken() method instead because these tokens expire after a certain amount of time
+    private static final String access_token = "1jRfR08nR8qBa5FrU0_BWQXVSilOu3QRS424lW-FiHKnGU8c83cOlT94yzP8ykJ7fp585-glHX2Ek-6TUhsHqfa1Dr3VR-jDCVmyBXYlDa20Q66rTxSvq-YwXpZmWXYx";
+
+    // this is just an example of ONE of the api calls
+    // in this example, we call the /search method of the yelp api
+    // this will be different if we use a different method of the api
+    public static URL buildUrl(String location) {
+        Uri builtUri = Uri.parse(BASE_URL+"/search").buildUpon()
+                .appendQueryParameter("location", location)
+                .build();
+
+        URL url = null;
+        try {
+            url = new URL(builtUri.toString());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return url;
+    }
+
+    public static String getToken() throws MalformedURLException {
+        String oauthURL = "https://api.yelp.com/oauth2/token";
+        Uri uri = Uri.parse(oauthURL);
+
+        URL url = new URL(uri.toString());
+        HttpURLConnection client = null;
+        try {
+            client = (HttpURLConnection) url.openConnection();
+            client.setRequestMethod("POST");
+            client.setDoOutput(true);
+            DataOutputStream outputPost = new DataOutputStream(client.getOutputStream());
+            String body = "client_id="+CLIENT_ID+"&client_secret="+CLIENT_SECRET;
+            outputPost.writeBytes(body);
+
+            InputStream in = client.getInputStream();
+            Scanner scanner = new Scanner(in);
+            scanner.useDelimiter("\\A");
+            boolean hasInput = scanner.hasNext();
+            String test = "Nada";
+            if (hasInput) {
+                test = scanner.next();
+            }
+
+            client.disconnect();
+            return test;
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "";
+    }
+
+    public static String getResponse(URL url) throws IOException, JSONException {
+
+        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        // note that we use the getToken() function instead of using the static token defined
+        // above
+        JSONObject tokenJSON = new JSONObject(getToken());
+        String token = tokenJSON.getString("access_token");
+
+        urlConnection.setRequestProperty("Authorization", "Bearer "+token);
+
+        try {
+            InputStream in = urlConnection.getInputStream();
+
+            Scanner scanner = new Scanner(in);
+            scanner.useDelimiter("\\A");
+
+            boolean hasInput = scanner.hasNext();
+            if (hasInput) {
+                return scanner.next();
+            } else {
+                return null;
+            }
+        } finally {
+            urlConnection.disconnect();
+        }
+
+    }
+
+
+}
