@@ -33,7 +33,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 Contract.TABLE_ITEMS.COLUMN_NAME_SNIPPET_IMAGE_URL + " TEXT, " +
                 Contract.TABLE_ITEMS.COLUMN_NAME_ADDRESS + " TEXT, " + // there might be an issue with the data type of address. api says its a list not a string
                 Contract.TABLE_ITEMS.COLUMN_NAME_MENU_PROVIDER + " TEXT, " +
-                Contract.TABLE_ITEMS.COLUMN_NAME_RATING + " INTEGER" +
+                Contract.TABLE_ITEMS.COLUMN_NAME_RATING + " INTEGER, " +
+                Contract.TABLE_ITEMS.COLUMN_NAME_CATEGORIES + " TEXT" +
                 "); ";
 
         Log.d(TAG, "Create SQL table: " + queryString);
