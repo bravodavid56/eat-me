@@ -9,6 +9,8 @@ import com.example.bravodavid56.eatme.activity1.*;
 import com.example.bravodavid56.eatme.activity2.*;
 import com.example.bravodavid56.eatme.activity3.*;
 
+// just checking to see if im branching correctly 
+
 public class MainActivity extends AppCompatActivity {
     private String TAG = "EatMe";
 

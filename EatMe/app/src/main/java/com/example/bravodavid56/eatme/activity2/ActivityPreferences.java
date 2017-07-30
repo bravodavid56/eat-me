@@ -10,6 +10,7 @@ import com.example.bravodavid56.eatme.*;
  * Created by bravodavid56 on 7/29/2017.
  */
 
+
 public class ActivityPreferences extends AppCompatActivity {
 
     @Override
