@@ -28,11 +28,11 @@ public class ActivityRandom extends AppCompatActivity {
     private Cursor cursor;
     private SQLiteDatabase db;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random);
-        // the layout for this activity is under res->layout->activity_random.xml
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         db = new DBHelper(ActivityRandom.this).getReadableDatabase();
@@ -56,4 +56,6 @@ public class ActivityRandom extends AppCompatActivity {
         db.close();
         cursor.close();
     }
+
+
 }
