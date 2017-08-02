@@ -30,7 +30,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 Contract.TABLE_ITEMS.COLUMN_NAME_DISPLAY_PHONE + " TEXT, " +
                 Contract.TABLE_ITEMS.COLUMN_NAME_REVIEW_COUNT + " INTEGER, " +
                 Contract.TABLE_ITEMS.COLUMN_NAME_ADDRESS + " TEXT, " + // there might be an issue with the data type of address. api says its a list not a string
-                Contract.TABLE_ITEMS.COLUMN_NAME_RATING + " INTEGER, " +
+                Contract.TABLE_ITEMS.COLUMN_NAME_RATING + " DECIMAL, " +
                 Contract.TABLE_ITEMS.COLUMN_NAME_CATEGORIES + " TEXT" +
                 "); ";
 
