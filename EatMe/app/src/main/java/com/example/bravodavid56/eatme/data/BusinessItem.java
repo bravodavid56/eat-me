@@ -8,36 +8,17 @@ import java.util.List;
 
 public class BusinessItem {
 
-
-
-
     private String id;
-
     private String name;
     private String image_url;
     private String url;
     private String display_phone;
     private int review_count;
-
-
-
-    private String rating_img_url;
-    private String snippet_text;
-    private String snippet_image_url;
-    private String menu_provider;
-
-    // the data type from the json is initially a list, but we can extract the address string
-
-
-
-
     private String address; // the data type from the json is initially a list, but we can extract the address string
-
     private double rating;
     private String categories; // need to create a method to convert the list to string and string to list
-
-
-    public BusinessItem(String id, String name, String image_url, String url, String display_phone, int review_count, String address, int rating, String categories) {
+    
+    public BusinessItem(String id, String name, String image_url, String url, String display_phone, int review_count, String address, double rating, String categories) {
         this.id = id;
         this.name = name;
         this.image_url = image_url;
