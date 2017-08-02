@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">EatMe</string>
+
+    <string-array name="price_range_array">
+        <item>$</item>
+        <item>$$</item>
+        <item>$$$</item>
+        <item>$$$$</item>
+
+    </string-array>
 </resources>

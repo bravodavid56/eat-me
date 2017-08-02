@@ -21,5 +21,6 @@ public class ActivityPreferences extends AppCompatActivity {
 
         TextView textView = (TextView) findViewById(R.id.textView2);
         textView.setText("You clicked Preferences");
+
     }
 }
