@@ -1,12 +1,10 @@
 package com.example.bravodavid56.eatme.activity1;
 
-<<<<<<< HEAD
+
 import android.net.Network;
 import android.os.AsyncTask;
-=======
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
->>>>>>> master
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
@@ -17,16 +15,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.bravodavid56.eatme.*;
-<<<<<<< HEAD
 import com.example.bravodavid56.eatme.data.NetworkUtils;
 
 import org.json.JSONException;
 
 import java.net.URL;
-=======
 import com.example.bravodavid56.eatme.data.DBHelper;
 import com.example.bravodavid56.eatme.data.DatabaseUtils;
->>>>>>> master
 
 /**
  * Created by bravodavid56 on 7/29/2017.
@@ -46,8 +41,14 @@ public class ActivityRandom extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random);
-<<<<<<< HEAD
-        // the layout for this activity is under res->layout->activity_random.xml
+
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        db = new DBHelper(ActivityRandom.this).getReadableDatabase();
+        cursor = DatabaseUtils.getAll(db);
+        adapter = new BusinessItemAdapter(cursor);
+        recyclerView.setAdapter(adapter);
+
         new TestApiCall().execute();
     }
 
@@ -80,13 +81,8 @@ public class ActivityRandom extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-=======
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        db = new DBHelper(ActivityRandom.this).getReadableDatabase();
-        cursor = DatabaseUtils.getAll(db);
-        adapter = new BusinessItemAdapter(cursor);
-        recyclerView.setAdapter(adapter);
+
+
     }
 
     @Override
@@ -103,7 +99,6 @@ public class ActivityRandom extends AppCompatActivity {
         super.onStop();
         db.close();
         cursor.close();
->>>>>>> master
     }
 
 
