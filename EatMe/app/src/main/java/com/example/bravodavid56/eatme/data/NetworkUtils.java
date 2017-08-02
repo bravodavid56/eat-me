@@ -117,9 +117,6 @@ public class NetworkUtils {
     }
 
     public static String getSpecificResponse(String businessID) {
-
-
-
         return "";
     }
 

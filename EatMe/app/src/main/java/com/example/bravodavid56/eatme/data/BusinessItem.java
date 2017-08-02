@@ -9,8 +9,8 @@ import java.util.List;
 public class BusinessItem {
 
 
-    // id
 
+    private double id;
     private String name;
     private String image_url;
     private String url;
