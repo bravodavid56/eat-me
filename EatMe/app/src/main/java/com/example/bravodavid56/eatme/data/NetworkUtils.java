@@ -126,24 +126,48 @@ public class NetworkUtils {
 
         JSONObject rawObject = new JSONObject(rawJson);
         JSONArray businesses = rawObject.getJSONArray("businesses");
-        JSONObject test = (JSONObject) businesses.get(0);
-        Log.e("TESTING", "parseSearchJson: " + test );
 
-        // String id = test.getString("id");
+        ArrayList<BusinessItem> bi = new ArrayList<>();
 
-        String name = test.getString("name");
-        String image_url = test.getString("image_url");
-        String url = test.getString("url");
-        String display_phone = test.getString("display_phone");
-        int review_count = test.getInt("review_count");
+        for (int i = 0; i < businesses.length(); i++) {
+            JSONObject test = (JSONObject) businesses.get(i);
 
-        JSONArray display_address = test.getJSONObject("location")
-                .getJSONArray("display_address");
-        String address = (String) display_address.get(0) + " "
-                + display_address.get(1) + " " + display_address.get(2);
-        double rating = test.getDouble("rating");
+            String id = test.getString("id");
 
-        return new ArrayList<>();
+            String name = test.getString("name");
+
+            String image_url = test.getString("image_url");
+            String url = test.getString("url");
+            String display_phone = test.getString("display_phone");
+            int review_count = test.getInt("review_count");
+
+            JSONArray display_address = test.getJSONObject("location")
+                    .getJSONArray("display_address");
+            String address = (String) display_address.get(0) + ", "
+                    + display_address.get(1);
+            try {
+                // this is to check if an address has an apartment number/suite number
+                String address_3 = (String) display_address.get(2);
+                address = address + " " + address_3;
+            } catch (JSONException e) {
+                // do nothing
+            }
+            Log.e("TEST", "parseSearchJson: "+ address);
+
+            double rating = test.getDouble("rating");
+
+            // getting the category
+            // this only gets one cateogry; we can add more later
+            JSONArray allCategories = test.getJSONArray("categories");
+            JSONObject category = (JSONObject) allCategories.get(0);
+            String category_name = category.getString("alias");
+
+            bi.add(new BusinessItem(id, name, image_url,url,display_phone,review_count,
+                    address,rating,category_name));
+        }
+
+
+        return bi;
 
 
 
