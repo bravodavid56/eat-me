@@ -162,8 +162,12 @@ public class NetworkUtils {
             JSONObject category = (JSONObject) allCategories.get(0);
             String category_name = category.getString("alias");
 
+            char[] price_array = test.getString("price").toCharArray();
+            int length = price_array.length;
+            String price = String.valueOf(length);
+
             bi.add(new BusinessItem(id, name, image_url,url,display_phone,review_count,
-                    address,rating,category_name));
+                    address,rating,category_name, price));
         }
 
 

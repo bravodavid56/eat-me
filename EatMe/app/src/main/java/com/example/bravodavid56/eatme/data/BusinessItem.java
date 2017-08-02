@@ -17,8 +17,9 @@ public class BusinessItem {
     private String address; // the data type from the json is initially a list, but we can extract the address string
     private double rating;
     private String categories; // need to create a method to convert the list to string and string to list
+    private String price;
 
-    public BusinessItem(String id, String name, String image_url, String url, String display_phone, int review_count, String address, double rating, String categories) {
+    public BusinessItem(String id, String name, String image_url, String url, String display_phone, int review_count, String address, double rating, String categories, String price) {
         this.id = id;
         this.name = name;
         this.image_url = image_url;
@@ -28,6 +29,15 @@ public class BusinessItem {
         this.address = address;
         this.rating = rating;
         this.categories = categories;
+        this.price = price;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public String getCategories() {
