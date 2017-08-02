@@ -50,16 +50,13 @@ public class DatabaseUtils {
             for (BusinessItem i: items)
             {
                 ContentValues cv = new ContentValues();
+                cv.put(Contract.TABLE_ITEMS.COLUMN_NAME_ID, i.getId());
                 cv.put(Contract.TABLE_ITEMS.COLUMN_NAME_NAME, i.getName());
                 cv.put(Contract.TABLE_ITEMS.COLUMN_NAME_IMAGE_URL, i.getImage_url());
                 cv.put(Contract.TABLE_ITEMS.COLUMN_NAME_URL, i.getUrl());
                 cv.put(Contract.TABLE_ITEMS.COLUMN_NAME_DISPLAY_PHONE, i.getDisplay_phone());
                 cv.put(Contract.TABLE_ITEMS.COLUMN_NAME_REVIEW_COUNT, i.getReview_count());
-                cv.put(Contract.TABLE_ITEMS.COLUMN_NAME_RATING_IMG_URL, i.getRating_img_url());
-                cv.put(Contract.TABLE_ITEMS.COLUMN_NAME_SNIPPET_TEXT, i.getSnippet_text());
-                cv.put(Contract.TABLE_ITEMS.COLUMN_NAME_IMAGE_URL, i.getSnippet_image_url());
                 cv.put(Contract.TABLE_ITEMS.COLUMN_NAME_ADDRESS, i.getAddress());
-                cv.put(Contract.TABLE_ITEMS.COLUMN_NAME_MENU_PROVIDER, i.getMenu_provider());
                 cv.put(Contract.TABLE_ITEMS.COLUMN_NAME_RATING, i.getRating());
                 cv.put(Contract.TABLE_ITEMS.COLUMN_NAME_CATEGORIES, i.getCategories());
                 db.insert(Contract.TABLE_ITEMS.TABLE_NAME, null, cv);

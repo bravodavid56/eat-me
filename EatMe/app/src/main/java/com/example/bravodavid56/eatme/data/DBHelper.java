@@ -23,16 +23,13 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String queryString = "CREATE TABLE " + Contract.TABLE_ITEMS.TABLE_NAME + " (" +
                 Contract.TABLE_ITEMS._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                Contract.TABLE_ITEMS.COLUMN_NAME_ID + " TEXT NOT NULL, " +
                 Contract.TABLE_ITEMS.COLUMN_NAME_NAME + " TEXT NOT NULL, " +
                 Contract.TABLE_ITEMS.COLUMN_NAME_IMAGE_URL + " TEXT, " +
                 Contract.TABLE_ITEMS.COLUMN_NAME_URL + " TEXT, " +
                 Contract.TABLE_ITEMS.COLUMN_NAME_DISPLAY_PHONE + " TEXT, " +
                 Contract.TABLE_ITEMS.COLUMN_NAME_REVIEW_COUNT + " INTEGER, " +
-                Contract.TABLE_ITEMS.COLUMN_NAME_RATING_IMG_URL + " TEXT, " +
-                Contract.TABLE_ITEMS.COLUMN_NAME_SNIPPET_TEXT + " TEXT, " +
-                Contract.TABLE_ITEMS.COLUMN_NAME_SNIPPET_IMAGE_URL + " TEXT, " +
                 Contract.TABLE_ITEMS.COLUMN_NAME_ADDRESS + " TEXT, " + // there might be an issue with the data type of address. api says its a list not a string
-                Contract.TABLE_ITEMS.COLUMN_NAME_MENU_PROVIDER + " TEXT, " +
                 Contract.TABLE_ITEMS.COLUMN_NAME_RATING + " INTEGER, " +
                 Contract.TABLE_ITEMS.COLUMN_NAME_CATEGORIES + " TEXT" +
                 "); ";

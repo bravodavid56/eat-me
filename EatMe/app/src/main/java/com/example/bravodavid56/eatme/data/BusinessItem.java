@@ -10,7 +10,9 @@ public class BusinessItem {
 
 
 
-    private double id;
+
+    private String id;
+
     private String name;
     private String image_url;
     private String url;
@@ -18,32 +20,31 @@ public class BusinessItem {
     private int review_count;
 
 
+
     private String rating_img_url;
     private String snippet_text;
     private String snippet_image_url;
     private String menu_provider;
 
+    // the data type from the json is initially a list, but we can extract the address string
+
+
+
+
     private String address; // the data type from the json is initially a list, but we can extract the address string
 
-
-
-    private int rating;
+    private double rating;
     private String categories; // need to create a method to convert the list to string and string to list
 
-    public BusinessItem(String name, String image_url, String url, String display_phone,
-                        int review_count, String rating_img_url, String snippet_text,
-                        String snippet_image_url, String address, String menu_provider,
-                        int rating, String categories) {
+
+    public BusinessItem(String id, String name, String image_url, String url, String display_phone, int review_count, String address, int rating, String categories) {
+        this.id = id;
         this.name = name;
         this.image_url = image_url;
         this.url = url;
         this.display_phone = display_phone;
         this.review_count = review_count;
-        this.rating_img_url = rating_img_url;
-        this.snippet_text = snippet_text;
-        this.snippet_image_url = snippet_image_url;
         this.address = address;
-        this.menu_provider = menu_provider;
         this.rating = rating;
         this.categories = categories;
     }
@@ -59,6 +60,14 @@ public class BusinessItem {
     public BusinessItem()
     {
 
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -101,30 +110,6 @@ public class BusinessItem {
         this.review_count = review_count;
     }
 
-    public String getRating_img_url() {
-        return rating_img_url;
-    }
-
-    public void setRating_img_url(String rating_img_url) {
-        this.rating_img_url = rating_img_url;
-    }
-
-    public String getSnippet_text() {
-        return snippet_text;
-    }
-
-    public void setSnippet_text(String snippet_text) {
-        this.snippet_text = snippet_text;
-    }
-
-    public String getSnippet_image_url() {
-        return snippet_image_url;
-    }
-
-    public void setSnippet_image_url(String snippet_image_url) {
-        this.snippet_image_url = snippet_image_url;
-    }
-
     public String getAddress() {
         return address;
     }
@@ -133,19 +118,11 @@ public class BusinessItem {
         this.address = address;
     }
 
-    public String getMenu_provider() {
-        return menu_provider;
-    }
-
-    public void setMenu_provider(String menu_provider) {
-        this.menu_provider = menu_provider;
-    }
-
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(double rating) {
         this.rating = rating;
     }
 }
