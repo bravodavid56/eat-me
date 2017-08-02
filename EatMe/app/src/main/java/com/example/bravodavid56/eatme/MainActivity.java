@@ -12,8 +12,8 @@ import com.example.bravodavid56.eatme.activity1.*;
 import com.example.bravodavid56.eatme.activity2.*;
 import com.example.bravodavid56.eatme.activity3.*;
 import com.example.bravodavid56.eatme.data.NetworkUtils;
+import com.example.bravodavid56.eatme.*;
 
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -60,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
 
                 URL url = NetworkUtils.buildUrl("San Francisco");
                 String response = NetworkUtils.getResponse(url);
-                Log.e(TAG, "doInBackground: " + response );
+                return response;
+
                 // prints the response just to show it's calling it correctly
 
             } catch (Exception e) {

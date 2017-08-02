@@ -3,6 +3,7 @@ package com.example.bravodavid56.eatme.data;
 import android.net.Uri;
 import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -14,6 +15,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -40,6 +42,7 @@ public class NetworkUtils {
     public static URL buildUrl(String location) {
         Uri builtUri = Uri.parse(BASE_URL+"/search").buildUpon()
                 .appendQueryParameter("location", location)
+                .appendQueryParameter("categories","food")
                 .build();
 
         URL url = null;
@@ -113,5 +116,41 @@ public class NetworkUtils {
 
     }
 
+    public static String getSpecificResponse(String businessID) {
+
+
+
+        return "";
+    }
+
+    public static ArrayList<BusinessItem> parseSearchJson(String rawJson) throws JSONException {
+        // This method parses the JSON received when calling the /search API
+        // with a location attached
+
+        JSONObject rawObject = new JSONObject(rawJson);
+        JSONArray businesses = rawObject.getJSONArray("businesses");
+        JSONObject test = (JSONObject) businesses.get(0);
+        Log.e("TESTING", "parseSearchJson: " + test );
+
+        // String id = test.getString("id");
+
+        String name = test.getString("name");
+        String image_url = test.getString("image_url");
+        String url = test.getString("url");
+        String display_phone = test.getString("display_phone");
+        int review_count = test.getInt("review_count");
+
+        JSONArray display_address = test.getJSONObject("location")
+                .getJSONArray("display_address");
+        String address = (String) display_address.get(0) + " "
+                + display_address.get(1) + " " + display_address.get(2);
+        double rating = test.getDouble("rating");
+
+        return new ArrayList<>();
+
+
+
+
+    }
 
 }
