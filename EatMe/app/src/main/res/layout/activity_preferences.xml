@@ -7,5 +7,29 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="You are located here: " />
+
+
+    <EditText
+        android:id="@+id/select_place"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Please enter a category" />
+
+    <Spinner
+        android:id="@+id/spinnerPrice"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/price_range_array"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/enterButton"
+        android:layout_width="145dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Button" />
+
 </LinearLayout>
