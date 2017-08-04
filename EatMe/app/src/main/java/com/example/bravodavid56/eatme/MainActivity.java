@@ -2,7 +2,6 @@ package com.example.bravodavid56.eatme;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
@@ -11,17 +10,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 
 import com.example.bravodavid56.eatme.activity1.*;
 import com.example.bravodavid56.eatme.activity2.*;
 import com.example.bravodavid56.eatme.activity3.*;
-import com.example.bravodavid56.eatme.data.NetworkUtils;
-import com.example.bravodavid56.eatme.*;
 import com.example.bravodavid56.eatme.data.RefreshTasks;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 
 // just checking to see if im branching correctly 
 
