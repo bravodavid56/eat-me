@@ -5,6 +5,9 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -33,6 +36,14 @@
         </activity>
 
         <activity android:name=".activity3.ActivityNearby">
+            <intent-filter>
+                <action android:name="android.intent.action.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+        <!-- This is where the connection stuff is -->
+        <activity android:name="com.example.bravodavid56.eatme.connectionActivity.ConnectionMain">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
