@@ -19,6 +19,8 @@ import com.example.bravodavid56.eatme.data.NetworkUtils;
 import org.json.JSONException;
 
 import java.net.URL;
+import java.util.Random;
+
 import com.example.bravodavid56.eatme.data.DBHelper;
 import com.example.bravodavid56.eatme.data.DatabaseUtils;
 
@@ -66,11 +68,10 @@ public class ActivityRandom extends AppCompatActivity {
 
     private void scrollingTest()
     {
-        recyclerView.smoothScrollToPosition(cursor.getCount() - 1);
-//        for (int i = 0; i < cursor.getCount(); i++)
-//        {
-//            recyclerView.scrollToPosition(i);
-//        }
+        button.setVisibility(View.GONE);
+        Random random = new Random();
+        int i = random.nextInt(cursor.getCount());
+        recyclerView.smoothScrollToPosition(i);
     }
 
 //    class TestApiCall extends AsyncTask<String, Void, String> {
