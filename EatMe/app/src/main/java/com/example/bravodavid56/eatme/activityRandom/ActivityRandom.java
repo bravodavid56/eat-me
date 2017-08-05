@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.bravodavid56.eatme.*;
+import com.example.bravodavid56.eatme.data.LinearLayoutManagerWithSmoothScroller;
 import com.example.bravodavid56.eatme.data.NetworkUtils;
 
 import org.json.JSONException;
@@ -36,8 +37,6 @@ public class ActivityRandom extends AppCompatActivity {
     private Cursor cursor;
     private SQLiteDatabase db;
     private Button button;
-    private LinearLayoutManager mLinearLayoutManager;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +46,7 @@ public class ActivityRandom extends AppCompatActivity {
 
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        mLinearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        recyclerView.setLayoutManager(mLinearLayoutManager);
+        recyclerView.setLayoutManager(new LinearLayoutManagerWithSmoothScroller(this));
         db = new DBHelper(ActivityRandom.this).getReadableDatabase();
         cursor = DatabaseUtils.getAll(db);
         adapter = new BusinessItemAdapter(cursor);
@@ -58,7 +56,7 @@ public class ActivityRandom extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                scrollingTest(mLinearLayoutManager);
+                scrollingTest();
             }
         });
 
@@ -66,17 +64,13 @@ public class ActivityRandom extends AppCompatActivity {
     }
 
 
-    private void scrollingTest(LinearLayoutManager LLM)
+    private void scrollingTest()
     {
-        for (int i = 0; i < cursor.getCount(); i++)
-        {
-            LLM.scrollToPosition(i);
-            try{
-                sleep(1000);
-            }catch(InterruptedException e){
-                e.printStackTrace();
-            }
-        }
+        recyclerView.smoothScrollToPosition(cursor.getCount() - 1);
+//        for (int i = 0; i < cursor.getCount(); i++)
+//        {
+//            recyclerView.scrollToPosition(i);
+//        }
     }
 
 //    class TestApiCall extends AsyncTask<String, Void, String> {
@@ -127,6 +121,7 @@ public class ActivityRandom extends AppCompatActivity {
         db.close();
         cursor.close();
     }
+
 
 
 }
