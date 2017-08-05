@@ -3,6 +3,7 @@ package com.example.bravodavid56.eatme.connectionActivity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.IntentFilter;
+import android.net.wifi.WpsInfo;
 import android.net.wifi.p2p.WifiP2pConfig;
 import android.net.wifi.p2p.WifiP2pDevice;
 import android.net.wifi.p2p.WifiP2pDeviceList;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.bravodavid56.eatme.R;
 
@@ -22,7 +24,7 @@ import java.util.List;
  * Created by bravodavid56 on 8/4/2017.
  */
 
-public class ConnectionMain extends AppCompatActivity implements  WifiP2pManager.PeerListListener {
+public class ConnectionMain extends AppCompatActivity implements  WifiP2pManager.PeerListListener , WifiP2pManager.ConnectionInfoListener{
 
     private WifiP2pManager mManager;
     private WifiP2pManager.Channel mChannel;
@@ -52,7 +54,7 @@ public class ConnectionMain extends AppCompatActivity implements  WifiP2pManager
         mManager.discoverPeers(mChannel, new WifiP2pManager.ActionListener() {
             @Override
             public void onSuccess() {
-                Log.e(TAG, "onSuccess: " );
+                // Toast.makeText(ConnectionMain.this, "HEY DUDE", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -69,8 +71,29 @@ public class ConnectionMain extends AppCompatActivity implements  WifiP2pManager
         List<WifiP2pDevice> peerList = new ArrayList<>();
 
         peerList.addAll(peers.getDeviceList());
-        Log.e(TAG, "onPeersAvailable: "+ peerList.size() );
-        Log.e(TAG, "onPeersAvailable: "+ peerList.get(0).deviceName );
+
+        if (peerList.size() > 0) {
+            WifiP2pDevice device = peerList.get(0);
+            WifiP2pConfig config = new WifiP2pConfig();
+            config.wps.setup = WpsInfo.PBC;
+            config.deviceAddress = device.deviceAddress;
+            mManager.connect(mChannel, config, new WifiP2pManager.ActionListener() {
+
+                @Override
+                public void onSuccess() {
+                     //Toast.makeText(ConnectionMain.this, "YOU ARE CONNECTED", Toast.LENGTH_LONG).show();
+                    //success logic
+                }
+
+                @Override
+                public void onFailure(int reason) {
+                    //failure logic
+                }
+            });
+
+
+        }
+
 
     }
 
@@ -89,4 +112,13 @@ public class ConnectionMain extends AppCompatActivity implements  WifiP2pManager
     }
 
 
+    @Override
+    public void onConnectionInfoAvailable(WifiP2pInfo info) {
+        if (info.isGroupOwner) {
+            Toast.makeText(this, "YOU ARE THE OWNER", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "YOU ARE NOT THE OWNER", Toast.LENGTH_SHORT).show();
+        }
+        Log.e(TAG, "onConnectionInfoAvailable: "+info.toString());
+    }
 }
