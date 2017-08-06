@@ -59,7 +59,9 @@ public class DatabaseUtils {
                 cv.put(Contract.TABLE_ITEMS.COLUMN_NAME_ADDRESS, i.getAddress());
                 cv.put(Contract.TABLE_ITEMS.COLUMN_NAME_RATING, i.getRating());
                 cv.put(Contract.TABLE_ITEMS.COLUMN_NAME_CATEGORIES, i.getCategories());
+                cv.put(Contract.TABLE_ITEMS.COLUMN_NAME_PRICE, i.getPrice());
                 db.insert(Contract.TABLE_ITEMS.TABLE_NAME, null, cv);
+
             }
             db.setTransactionSuccessful();
         } finally {

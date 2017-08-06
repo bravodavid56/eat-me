@@ -20,6 +20,7 @@ public class Contract {
         public static final String COLUMN_NAME_ADDRESS = "address";
         public static final String COLUMN_NAME_RATING = "rating";
         public static final String COLUMN_NAME_CATEGORIES = "categories";
+        public static final String COLUMN_NAME_PRICE = "price";
 
     }
 }

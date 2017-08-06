@@ -31,7 +31,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 Contract.TABLE_ITEMS.COLUMN_NAME_REVIEW_COUNT + " INTEGER, " +
                 Contract.TABLE_ITEMS.COLUMN_NAME_ADDRESS + " TEXT, " + // there might be an issue with the data type of address. api says its a list not a string
                 Contract.TABLE_ITEMS.COLUMN_NAME_RATING + " DECIMAL, " +
-                Contract.TABLE_ITEMS.COLUMN_NAME_CATEGORIES + " TEXT" +
+                Contract.TABLE_ITEMS.COLUMN_NAME_CATEGORIES + " TEXT, " +
+                Contract.TABLE_ITEMS.COLUMN_NAME_PRICE + " TEXT " +
                 "); ";
 
         Log.d(TAG, "Create SQL table: " + queryString);
