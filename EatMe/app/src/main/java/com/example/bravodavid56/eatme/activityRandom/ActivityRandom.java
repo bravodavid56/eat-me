@@ -88,8 +88,8 @@ public class ActivityRandom extends AppCompatActivity {
             {
                 recyclerView.scrollToPosition(pos);
                 mp.pause();
-                mp = MediaPlayer.create(this, R.raw.winning);
-                mp.start();
+                //mp = MediaPlayer.create(this, R.raw.winning);
+                //mp.start();
             }
         }
     }
