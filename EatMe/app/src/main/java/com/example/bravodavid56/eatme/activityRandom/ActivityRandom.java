@@ -1,27 +1,29 @@
 package com.example.bravodavid56.eatme.activityRandom;
 
 
-import android.os.AsyncTask;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+<<<<<<< HEAD
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView.LayoutParams;
+=======
+>>>>>>> 0c18c93e9d0a5b866561bb24d19c5cc5aad8b735
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.LayoutInflater;
 import android.widget.Button;
+<<<<<<< HEAD
 import android.widget.PopupWindow;
 import android.widget.TextView;
+=======
+>>>>>>> 0c18c93e9d0a5b866561bb24d19c5cc5aad8b735
 
 import com.example.bravodavid56.eatme.*;
 import com.example.bravodavid56.eatme.data.LinearLayoutManagerWithSmoothScroller;
-import com.example.bravodavid56.eatme.data.NetworkUtils;
 
-import org.json.JSONException;
-
-import java.net.URL;
 import java.util.Random;
 
 import com.example.bravodavid56.eatme.data.DBHelper;
@@ -39,12 +41,21 @@ public class ActivityRandom extends AppCompatActivity {
     private Cursor cursor;
     private SQLiteDatabase db;
     private Button button;
+    private MediaPlayer m;
+    private MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random);
 
+<<<<<<< HEAD
+=======
+        // replace the sound file that plays during roulette
+        mp = MediaPlayer.create(this, R.raw.spinning);
+        m = MediaPlayer.create(this, R.raw.winning);
+
+>>>>>>> 0c18c93e9d0a5b866561bb24d19c5cc5aad8b735
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManagerWithSmoothScroller(this));
         db = new DBHelper(ActivityRandom.this).getReadableDatabase();
@@ -87,10 +98,34 @@ public class ActivityRandom extends AppCompatActivity {
 
     private void scrollingTest()
     {
+        mp.start();
         button.setVisibility(View.GONE);
         Random random = new Random();
         int i = random.nextInt(cursor.getCount());
         recyclerView.smoothScrollToPosition(i);
+        recyclerView.addOnScrollListener(new CustomScrollListener(i));
+    }
+
+    class CustomScrollListener extends RecyclerView.OnScrollListener{
+
+        private int pos;
+
+        public CustomScrollListener(int pos){
+            super();
+            this.pos = pos;
+        }
+
+        @Override
+        public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            super.onScrollStateChanged(recyclerView, newState);
+            if (newState == RecyclerView.SCROLL_STATE_IDLE)
+            {
+                recyclerView.scrollToPosition(pos);
+                mp.pause();
+                //mp = MediaPlayer.create(this, R.raw.winning);
+                m.start();
+            }
+        }
     }
 
 //    class TestApiCall extends AsyncTask<String, Void, String> {
@@ -141,7 +176,5 @@ public class ActivityRandom extends AppCompatActivity {
         db.close();
         cursor.close();
     }
-
-
 
 }

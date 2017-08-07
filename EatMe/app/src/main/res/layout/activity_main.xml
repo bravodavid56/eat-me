@@ -15,21 +15,21 @@
         android:layout_height="10dp"
         android:layout_width="match_parent"
         android:layout_weight="1"
-        android:backgroundTint="#FF0000"
+        android:backgroundTint="#610000"
         android:onClick="onRandomClick"
         android:text="RANDOM"/>
     <Button
         android:layout_height="0dp"
         android:layout_width="match_parent"
         android:layout_weight="1"
-        android:backgroundTint="#0000FF"
+        android:backgroundTint="#00005c"
         android:onClick="onPrefClick"
         android:text="PREFERENCES"/>
     <Button
         android:layout_height="0dp"
         android:layout_width="match_parent"
         android:layout_weight="1"
-        android:backgroundTint="#00FF00"
+        android:backgroundTint="#004d00"
         android:onClick="onNearbyClick"
         android:text="NEARBY"/>
 

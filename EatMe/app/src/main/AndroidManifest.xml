@@ -12,27 +12,30 @@
         android:icon="@mipmap/eat_me_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/eat_me_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        android:supportsRtl="true">
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activityRandom.ActivityRandom">
+        <activity android:name=".activityRandom.ActivityRandom"
+            android:theme="@style/RandomTheme">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity2.ActivityPreferences">
+        <activity android:name=".activity2.ActivityPreferences"
+            android:theme="@style/FilterTheme">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
             android:name=".activity3.ActivityNearby"
+            android:theme="@style/NearbyTheme"
             android:label="@string/title_activity_nearby">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
