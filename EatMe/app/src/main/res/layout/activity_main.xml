@@ -14,7 +14,7 @@
         android:layout_height="10dp"
         android:layout_width="match_parent"
         android:layout_weight="1"
-        android:backgroundTint="#FF0000"
+        android:backgroundTint="#610000"
         android:onClick="onRandomClick"
         android:text="RANDOM"/>
     <Button
