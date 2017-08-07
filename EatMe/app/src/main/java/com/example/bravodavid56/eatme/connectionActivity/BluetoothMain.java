@@ -105,6 +105,7 @@ public class BluetoothMain extends AppCompatActivity {
         public AcceptThread() {
             BluetoothServerSocket tmp = null;
             try {
+                Log.e(TAG, "AcceptThread: Listening on adapter." );
                 tmp = mBluetoothAdapter.listenUsingInsecureRfcommWithServiceRecord("eatme", UUID.fromString(uuid));
             } catch (IOException e) {
                 Log.e(TAG, "AcceptThread: " + e.toString() );
@@ -315,8 +316,10 @@ public class BluetoothMain extends AppCompatActivity {
             mConnectedThread.cancel();
             mConnectedThread = null;
         }
+
         if (mAcceptThread == null) {
             mAcceptThread = new AcceptThread();
+            Log.e(TAG, "serverStart: "+(mAcceptThread == null) );
             mAcceptThread.start();
         }
         Log.e(TAG, "serverStart: Now accepting connections." );

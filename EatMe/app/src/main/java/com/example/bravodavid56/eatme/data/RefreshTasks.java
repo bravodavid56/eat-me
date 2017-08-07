@@ -29,7 +29,6 @@ public class RefreshTasks {
             // insert all of the data from the network call into the database
             DatabaseUtils.bulkInsert(db, result);
             Log.e("RefreshTasks", "refreshArticles:1  " );
-
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
