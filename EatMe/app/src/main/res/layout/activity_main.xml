@@ -17,20 +17,26 @@
         android:layout_weight="1"
         android:backgroundTint="#610000"
         android:onClick="onRandomClick"
-        android:text="RANDOM"/>
+        android:text="RANDOM"
+        android:textColor="@color/white"
+        android:textSize="30sp"/>
     <Button
         android:layout_height="0dp"
         android:layout_width="match_parent"
         android:layout_weight="1"
         android:backgroundTint="#00005c"
         android:onClick="onPrefClick"
-        android:text="PREFERENCES"/>
+        android:text="PREFERENCES"
+        android:textColor="@color/white"
+        android:textSize="30sp"/>
     <Button
         android:layout_height="0dp"
         android:layout_width="match_parent"
         android:layout_weight="1"
         android:backgroundTint="#004d00"
         android:onClick="onNearbyClick"
-        android:text="NEARBY"/>
+        android:text="NEARBY"
+        android:textColor="@color/white"
+        android:textSize="30sp"/>
 
 </LinearLayout>

@@ -3,14 +3,6 @@
         <corners
             android:radius="100dp"
             />
-        <!--<gradient-->
-            <!--android:angle="45"-->
-            <!--android:centerX="0%"-->
-            <!--android:centerColor="#D60000"-->
-            <!--android:color="@color/color_selector_random"-->
-            <!--android:endColor="#210605"-->
-            <!--android:type="linear"-->
-            <!--/>-->
     <solid
         android:color="@color/color_selector_random"/>
         <padding
