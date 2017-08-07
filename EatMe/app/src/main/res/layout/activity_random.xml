@@ -16,27 +16,29 @@
                       android:layout_height="match_parent"> </android.support.v7.widget.RecyclerView>
           </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/popup"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_margin="1dp"
-            android:background="@android:color/darker_gray">
-                <Button
-                    android:id="@+id/button_go"
-                    android:layout_width="207dp"
-                    android:layout_height="109dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/buttonshape"
-                    android:shadowColor="#A8A8A8"
-                    android:shadowDx="0"
-                    android:shadowDy="0"
+    <LinearLayout
+        android:id="@+id/popup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="1dp"
+        android:background="@color/dark_gray"
+        android:orientation="vertical">
 
-                    android:shadowRadius="5"
-                    android:text="@string/roulette_button"
-                    android:textColor="#FFFFFF"
-                    android:textSize="30sp"
-                    android:visibility="visible" />
-            </LinearLayout>
+        <Button
+            android:id="@+id/button_go"
+            android:layout_width="207dp"
+            android:layout_height="109dp"
+            android:layout_gravity="center"
+            android:background="@drawable/buttonshape"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:layout_marginTop="180dp"
+
+            android:shadowRadius="5"
+            android:text="@string/roulette_button"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:visibility="visible" />
+    </LinearLayout>
   </FrameLayout>
