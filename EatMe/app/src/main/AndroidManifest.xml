@@ -49,6 +49,17 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".connectionActivity.ClientSocket">
+            <intent-filter>
+                <action android:name="android.intent.action.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".connectionActivity.Server">
+            <intent-filter>
+                <action android:name="android.intent.action.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

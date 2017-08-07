@@ -2,6 +2,7 @@ package com.example.bravodavid56.eatme.connectionActivity;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.wifi.WpsInfo;
 import android.net.wifi.p2p.WifiP2pConfig;
@@ -14,6 +15,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.LoaderManager;
+import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -26,12 +28,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static java.security.AccessController.getContext;
+
 /**
  * Created by bravodavid56 on 8/4/2017.
  */
 
-public class ConnectionMain extends AppCompatActivity implements  WifiP2pManager.PeerListListener , WifiP2pManager.ConnectionInfoListener,
-        LoaderManager.LoaderCallbacks {
+public class ConnectionMain extends AppCompatActivity implements  WifiP2pManager.PeerListListener , WifiP2pManager.ConnectionInfoListener{
 
     private WifiP2pManager mManager;
     private WifiP2pManager.Channel mChannel;
@@ -109,7 +112,6 @@ public class ConnectionMain extends AppCompatActivity implements  WifiP2pManager
                 });
             }
         }
-
     }
 
     @Override
@@ -127,34 +129,24 @@ public class ConnectionMain extends AppCompatActivity implements  WifiP2pManager
 
     @Override
     public void onConnectionInfoAvailable(WifiP2pInfo info) {
-        String loser = "Chicken Dinner.";
         if (info.isGroupOwner) {
             Toast.makeText(this, "YOU ARE THE OWNER", Toast.LENGTH_SHORT).show();
-            //tv.setText("CHICKEN DINNER");
+            Intent i = new Intent(this, Server.class);
+            startActivity(i);
+
 
         } else {
             Toast.makeText(this, "YOU ARE NOT THE OWNER", Toast.LENGTH_SHORT).show();
-            //tv.setText("CHICKEN LOSER");
+            Intent i = new Intent(this, ClientSocket.class);
+            i.putExtra("host", info.groupOwnerAddress.toString());
+            startActivity(i);
         }
 
         Log.e(TAG, "onConnectionInfoAvailable: "+info.toString() );
     }
 
 
-    // ========= Loader Code for Creating Socket for information transfer =============
 
-    @Override
-    public Loader onCreateLoader(int id, Bundle args) {
-        return null;
-    }
 
-    @Override
-    public void onLoadFinished(Loader loader, Object data) {
 
-    }
-
-    @Override
-    public void onLoaderReset(Loader loader) {
-
-    }
 }

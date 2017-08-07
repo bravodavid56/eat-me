@@ -102,7 +102,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public void onLoaderReset(Loader<Void> loader) {
 
     }
-
     // this async task is just to test the API calls are being made correctly
     // we can replace this later
 
@@ -129,4 +128,5 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         return true;
     }
+
 }
