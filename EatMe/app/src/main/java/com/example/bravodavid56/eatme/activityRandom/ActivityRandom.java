@@ -33,6 +33,7 @@ public class ActivityRandom extends AppCompatActivity {
     private Cursor cursor;
     private SQLiteDatabase db;
     private Button button;
+    private MediaPlayer m;
     private MediaPlayer mp;
 
     @Override
@@ -42,6 +43,7 @@ public class ActivityRandom extends AppCompatActivity {
 
         // replace the sound file that plays during roulette
         mp = MediaPlayer.create(this, R.raw.spinning);
+        m = MediaPlayer.create(this, R.raw.winning);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManagerWithSmoothScroller(this));
@@ -89,7 +91,7 @@ public class ActivityRandom extends AppCompatActivity {
                 recyclerView.scrollToPosition(pos);
                 mp.pause();
                 //mp = MediaPlayer.create(this, R.raw.winning);
-                //mp.start();
+                m.start();
             }
         }
     }
