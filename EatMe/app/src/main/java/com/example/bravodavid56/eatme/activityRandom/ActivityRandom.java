@@ -41,7 +41,7 @@ public class ActivityRandom extends AppCompatActivity {
         setContentView(R.layout.activity_random);
 
         // replace the sound file that plays during roulette
-        mp = MediaPlayer.create(this, R.raw.donuts);
+        mp = MediaPlayer.create(this, R.raw.spinning);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManagerWithSmoothScroller(this));
