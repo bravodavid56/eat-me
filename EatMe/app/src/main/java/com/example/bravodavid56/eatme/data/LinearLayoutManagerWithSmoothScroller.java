@@ -17,6 +17,7 @@ code taken from https://stackoverflow.com/questions/31235183/recyclerview-how-to
 public class LinearLayoutManagerWithSmoothScroller extends LinearLayoutManager {
 
     private static final float MILLISECONDS_PER_INCH = 200f;
+    private int destinationPos = 0;
 
     public LinearLayoutManagerWithSmoothScroller(Context context) {
         super(context, VERTICAL, false);
@@ -29,10 +30,12 @@ public class LinearLayoutManagerWithSmoothScroller extends LinearLayoutManager {
     @Override
     public void smoothScrollToPosition(RecyclerView recyclerView, RecyclerView.State state,
                                        int position) {
+        destinationPos = position;
         RecyclerView.SmoothScroller smoothScroller = new TopSnappedSmoothScroller(recyclerView.getContext());
         smoothScroller.setTargetPosition(position);
         startSmoothScroll(smoothScroller);
     }
+
 
     private class TopSnappedSmoothScroller extends LinearSmoothScroller {
         public TopSnappedSmoothScroller(Context context) {
