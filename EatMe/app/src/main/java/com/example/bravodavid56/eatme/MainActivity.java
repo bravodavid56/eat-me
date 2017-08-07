@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.example.bravodavid56.eatme.activity1.*;
 import com.example.bravodavid56.eatme.activity2.*;
 import com.example.bravodavid56.eatme.activity3.*;
+import com.example.bravodavid56.eatme.connectionActivity.BluetoothMain;
 import com.example.bravodavid56.eatme.connectionActivity.ConnectionMain;
 import com.example.bravodavid56.eatme.data.NetworkUtils;
 import com.example.bravodavid56.eatme.*;
@@ -122,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.connect) {
             Log.e(TAG, "onOptionsItemSelected: YOU SELECTED CONNECT" );
-            Intent intent = new Intent(this, ConnectionMain.class);
+            Intent intent = new Intent(this, BluetoothMain.class);
             startActivity(intent);
         }
 
