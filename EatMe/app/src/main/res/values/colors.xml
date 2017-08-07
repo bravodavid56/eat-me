@@ -3,4 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorRandomActivityHeader">#610000</color>
+    <color name="colorRandomActivityHeaderDark">#4d0000</color>
+    <color name="colorFilterActivityHeader">#00005c</color>
+    <color name="colorFilterActivityHeaderDark">#00003d</color>
+    <color name="colorNearbyActivityHeader">#004d00</color>
+    <color name="colorNearbyActivityHeaderDark">#003600</color>
 </resources>
