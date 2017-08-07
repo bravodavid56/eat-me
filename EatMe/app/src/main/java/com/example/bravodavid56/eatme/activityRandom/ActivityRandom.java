@@ -6,21 +6,18 @@ import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-<<<<<<< HEAD
+
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView.LayoutParams;
-=======
->>>>>>> 0c18c93e9d0a5b866561bb24d19c5cc5aad8b735
+
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.LayoutInflater;
 import android.widget.Button;
-<<<<<<< HEAD
+
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-=======
->>>>>>> 0c18c93e9d0a5b866561bb24d19c5cc5aad8b735
-
 import com.example.bravodavid56.eatme.*;
 import com.example.bravodavid56.eatme.data.LinearLayoutManagerWithSmoothScroller;
 
@@ -49,13 +46,10 @@ public class ActivityRandom extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random);
 
-<<<<<<< HEAD
-=======
         // replace the sound file that plays during roulette
         mp = MediaPlayer.create(this, R.raw.spinning);
         m = MediaPlayer.create(this, R.raw.winning);
 
->>>>>>> 0c18c93e9d0a5b866561bb24d19c5cc5aad8b735
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManagerWithSmoothScroller(this));
         db = new DBHelper(ActivityRandom.this).getReadableDatabase();
@@ -63,38 +57,17 @@ public class ActivityRandom extends AppCompatActivity {
         adapter = new BusinessItemAdapter(cursor);
         recyclerView.setAdapter(adapter);
 
-        button = (Button) findViewById(R.id.randomClick);
+        button = (Button) findViewById(R.id.button_go);
         button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LayoutInflater layoutInflater
-                        = (LayoutInflater)getBaseContext()
-                        .getSystemService(LAYOUT_INFLATER_SERVICE);
-                View popupView = layoutInflater.inflate(R.layout.activity_random, null);
-                final PopupWindow popupWindow = new PopupWindow(
-                        popupView,
-                        LayoutParams.WRAP_CONTENT,
-                        LayoutParams.WRAP_CONTENT);
-
-                Button btnDismiss = (Button)popupView.findViewById(R.id.button_go);
-                btnDismiss.setOnClickListener(new Button.OnClickListener(){
-
                     @Override
                     public void onClick(View v) {
-                        // TODO Auto-generated method stub
-                        popupWindow.dismiss();
-                    }});
-
-                popupWindow.showAsDropDown(button, 50, -30);
                 scrollingTest();
+                        LinearLayout lay = (LinearLayout) findViewById(R.id.popup);
+                        lay.setVisibility(View.INVISIBLE);
             }
         });
-//        new TestApiCall().execute();
+//       // new TestApiCall().execute();
     }
-
-
-
-
 
     private void scrollingTest()
     {
