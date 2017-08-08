@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.example.bravodavid56.eatme.connectionActivity.MultitouchView
+    <com.example.bravodavid56.eatme.multitouchrandomizer.MultitouchView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />

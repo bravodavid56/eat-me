@@ -1,9 +1,8 @@
-package com.example.bravodavid56.eatme.connectionActivity;
+package com.example.bravodavid56.eatme.multitouchrandomizer;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
 
 import com.example.bravodavid56.eatme.R;
 

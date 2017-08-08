@@ -43,40 +43,13 @@
         </activity>
 
         <!-- This is the multitouch activity -->
-        <activity android:name=".connectionActivity.Multitouch">
+        <activity android:name=".multitouchrandomizer.Multitouch">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT"/>
             </intent-filter>
         </activity>
         
-        
-        <!-- This is where bluetooth stuff is -->
-        <activity android:name=".connectionActivity.BluetoothMain">
-            <intent-filter>
-                <action android:name="android.intent.action.DEFAULT" />
-            </intent-filter>
-        </activity>
 
-
-
-        <!-- This is where the connection stuff is -->
-        <activity android:name="com.example.bravodavid56.eatme.connectionActivity.ConnectionMain">
-            <intent-filter>
-                <action android:name="android.intent.action.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".connectionActivity.ClientSocket">
-            <intent-filter>
-                <action android:name="android.intent.action.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".connectionActivity.Server">
-            <intent-filter>
-                <action android:name="android.intent.action.DEFAULT" />
-            </intent-filter>
-        </activity>
 
 
     </application>

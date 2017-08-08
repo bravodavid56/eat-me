@@ -2,7 +2,6 @@ package com.example.bravodavid56.eatme;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
@@ -14,20 +13,15 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
 import com.example.bravodavid56.eatme.activity1.*;
 import com.example.bravodavid56.eatme.activity2.*;
 import com.example.bravodavid56.eatme.activity3.*;
-import com.example.bravodavid56.eatme.connectionActivity.BluetoothMain;
-import com.example.bravodavid56.eatme.connectionActivity.ConnectionMain;
-import com.example.bravodavid56.eatme.connectionActivity.Multitouch;
-import com.example.bravodavid56.eatme.data.NetworkUtils;
-import com.example.bravodavid56.eatme.*;
+
+import com.example.bravodavid56.eatme.multitouchrandomizer.Multitouch;
 import com.example.bravodavid56.eatme.data.RefreshTasks;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 
 // just checking to see if im branching correctly 
 
@@ -124,8 +118,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.connect) {
             Log.e(TAG, "onOptionsItemSelected: YOU SELECTED CONNECT" );
-//            Intent intent = new Intent(this, BluetoothMain.class);
-//            startActivity(intent);
             Intent intent = new Intent(this, Multitouch.class);
             startActivity(intent);
 
