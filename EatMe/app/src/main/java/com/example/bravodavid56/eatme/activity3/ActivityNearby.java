@@ -1,6 +1,4 @@
 package com.example.bravodavid56.eatme.activity3;
-
-
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 //import com.example.bravodavid56.eatme.Manifest;
