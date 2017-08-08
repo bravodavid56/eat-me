@@ -9,16 +9,23 @@ import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.example.bravodavid56.eatme.activityRandom.*;
 import com.example.bravodavid56.eatme.activity2.*;
 import com.example.bravodavid56.eatme.activity3.*;
+
+
+import com.example.bravodavid56.eatme.multitouchrandomizer.Multitouch;
+
 import com.example.bravodavid56.eatme.data.RefreshTasks;
 
 import java.net.MalformedURLException;
 
-// just checking to see if im branching correctly 
+// just checking to see if im branching correctly
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Void> {
     private String TAG = "EatMe";
@@ -93,7 +100,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public void onLoaderReset(Loader<Void> loader) {
 
     }
-
     // this async task is just to test the API calls are being made correctly
     // we can replace this later
 
@@ -102,5 +108,24 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         loaderManager.restartLoader(1, null, this).forceLoad();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.connect) {
+            Log.e(TAG, "onOptionsItemSelected: YOU SELECTED CONNECT" );
+            Intent intent = new Intent(this, Multitouch.class);
+            startActivity(intent);
+
+        }
+
+        return true;
+    }
 
 }

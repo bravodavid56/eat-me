@@ -8,9 +8,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 
-/**
- * Created by bravodavid56 on 8/2/2017.
- */
 
 public class RefreshTasks {
     public static void refreshArticles(Context context) {
@@ -29,7 +26,6 @@ public class RefreshTasks {
             // insert all of the data from the network call into the database
             DatabaseUtils.bulkInsert(db, result);
             Log.e("RefreshTasks", "refreshArticles:1  " );
-
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
