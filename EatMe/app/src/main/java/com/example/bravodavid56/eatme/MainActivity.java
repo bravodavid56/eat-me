@@ -54,10 +54,6 @@ GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,
         locationHelper = new LocationHelper(this);
         locationHelper.checkpermission();
 
-
-
-
-
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean isFirst = prefs.getBoolean("isFirst", true);
 
@@ -70,6 +66,7 @@ GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,
         }
         if (locationHelper.checkPlayServices()) {
             locationHelper.buildGoogleApiClient();
+
         }
     }
 
@@ -77,6 +74,9 @@ GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,
     protected void onResume() {
         super.onResume();
         locationHelper.checkPlayServices();
+        if (mAddress != null) {
+            startLoading();
+        }
     }
 
     // the different methods correspond to the different buttons on the main activity
@@ -168,19 +168,30 @@ GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         locationHelper.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        mLastLocation = locationHelper.getLocation();
+        if (mLastLocation != null) {
+            Log.e(TAG, "onConnected: "+mLastLocation.getLatitude() + " " + mLastLocation.getLongitude());
+            runAddress();
+            startLoading();
+        }
     }
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
+        Log.e(TAG, "onConnected: CONNECTED" );
         connected = true;
         mLastLocation = locationHelper.getLocation();
-        Log.e(TAG, "onConnected: "+mLastLocation.getLatitude() + " " + mLastLocation.getLongitude());
-        runAddress();
-        startLoading();
+        if (mLastLocation != null) {
+            Log.e(TAG, "onConnected: "+mLastLocation.getLatitude() + " " + mLastLocation.getLongitude());
+            runAddress();
+            startLoading();
+        }
+
     }
 
     @Override
     public void onConnectionSuspended(int i) {
+        Log.e(TAG, "onConnectionSuspended: " );
         locationHelper.connectApiClient();
     }
 

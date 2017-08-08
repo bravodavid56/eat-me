@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView.LayoutParams;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.LayoutInflater;
 import android.widget.Button;
@@ -54,6 +55,7 @@ public class ActivityRandom extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManagerWithSmoothScroller(this));
         db = new DBHelper(ActivityRandom.this).getReadableDatabase();
         cursor = DatabaseUtils.getAll(db);
+
         adapter = new BusinessItemAdapter(cursor);
         recyclerView.setAdapter(adapter);
 
