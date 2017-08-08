@@ -42,6 +42,14 @@
             </intent-filter>
         </activity>
 
+        <!-- This is the multitouch activity -->
+        <activity android:name=".connectionActivity.Multitouch">
+            <intent-filter>
+                <action android:name="android.intent.action.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        
+        
         <!-- This is where bluetooth stuff is -->
         <activity android:name=".connectionActivity.BluetoothMain">
             <intent-filter>
@@ -70,7 +78,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".connectionActivity.BluetoothReceiver" />
+
     </application>
 
 </manifest>
