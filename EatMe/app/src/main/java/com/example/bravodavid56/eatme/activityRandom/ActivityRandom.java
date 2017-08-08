@@ -54,6 +54,13 @@ public class ActivityRandom extends AppCompatActivity {
         db = new DBHelper(ActivityRandom.this).getReadableDatabase();
         cursor = DatabaseUtils.getAll(db);
 
+        while (cursor.getCount() == 0)
+        {
+            cursor.close();
+            cursor = DatabaseUtils.getAll(db);
+        }
+
+
         adapter = new BusinessItemAdapter(cursor);
         recyclerView.setAdapter(adapter);
 
@@ -82,12 +89,21 @@ public class ActivityRandom extends AppCompatActivity {
 
     private void scrollToRandom()
     {
-        mp.start();
         button.setVisibility(View.GONE);
         Random random = new Random();
-        int i = random.nextInt(cursor.getCount());
-        recyclerView.smoothScrollToPosition(i);
-        recyclerView.addOnScrollListener(new CustomScrollListener(i));
+        int count = cursor.getCount();
+        int i = random.nextInt(count);
+        Log.d(TAG, "random value: " + Integer.toString(i));
+        if (i == 0)
+        {
+            m.start();
+        }
+        else{
+            mp.start();
+            recyclerView.smoothScrollToPosition(i);
+            recyclerView.addOnScrollListener(new CustomScrollListener(i));
+        }
+
     }
 
     class CustomScrollListener extends RecyclerView.OnScrollListener{
