@@ -48,15 +48,13 @@ public class ActivityPreferences extends AppCompatActivity
     private Spinner spinnerRating;
 
 
-
-//    private boolean start = false;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preferences);
         locationHelper = new LocationHelper(this);
         locationHelper.checkpermission();
+
 
 
         button = (Button) findViewById(R.id.locateButton);
@@ -118,8 +116,6 @@ public class ActivityPreferences extends AppCompatActivity
 //                sendDataToFragment.putExtra("Rating", rating);
 //                startActivity(sendDataToFragment);
 
-
-
                 FragmentManager fm = getSupportFragmentManager();
                 FragmentPreferences frag = new FragmentPreferences();
                 frag.setArguments(args);
@@ -151,15 +147,9 @@ public class ActivityPreferences extends AppCompatActivity
 //
 //        // check availability of play services
         if (locationHelper.checkPlayServices()) {
-
             // Building the GoogleApi client
             locationHelper.buildGoogleApiClient();
-
-
         }
-
-
-
 
 
     }
@@ -234,9 +224,6 @@ public void runAddress(){
                 Log.d(TAG, "Address");
                 Log.d(currentLocation, "here");
 
-
-
-
                 if (!button.isEnabled()) {
                     button.setEnabled(true);
                 }
@@ -276,6 +263,7 @@ public void runAddress(){
     public void onConnected(Bundle arg0) {
 
         // Once connected with google api, get the location
+
         mLastLocation=locationHelper.getLocation();
     }
 
@@ -283,7 +271,6 @@ public void runAddress(){
     public void onConnectionSuspended(int arg0) {
         locationHelper.connectApiClient();
     }
-
 
     // Permission check functions
     @Override

@@ -2,6 +2,8 @@ package com.example.bravodavid56.eatme.data;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.location.Address;
+import android.location.Location;
 import android.util.Log;
 
 import java.io.IOException;
@@ -10,10 +12,10 @@ import java.util.ArrayList;
 
 
 public class RefreshTasks {
-    public static void refreshArticles(Context context) {
+    public static void refreshArticles(Context context, Address address) {
         ArrayList<BusinessItem> result;
         // this will hold all of the NewsItems
-        URL url = NetworkUtils.buildUrl("South Gate, CA");
+        URL url = NetworkUtils.buildUrl(address.getAddressLine(0) + " " + address.getAddressLine(1));
 
         SQLiteDatabase db = new DBHelper(context).getWritableDatabase();
 
