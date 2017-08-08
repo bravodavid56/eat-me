@@ -1,24 +1,23 @@
 package com.example.bravodavid56.eatme.activityRandom;
 
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView.LayoutParams;
-
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
-import android.view.LayoutInflater;
 import android.widget.Button;
 
 import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.TextView;
+
 import com.example.bravodavid56.eatme.*;
+import com.example.bravodavid56.eatme.data.Contract;
 import com.example.bravodavid56.eatme.data.LinearLayoutManagerWithSmoothScroller;
 
 import java.util.Random;
@@ -61,7 +60,7 @@ public class ActivityRandom extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                scrollingTest();
+                scrollToRandom();
                 LinearLayout lay = (LinearLayout) findViewById(R.id.popup);
                 lay.setVisibility(View.INVISIBLE);
             }
@@ -69,7 +68,18 @@ public class ActivityRandom extends AppCompatActivity {
 //       // new TestApiCall().execute();
     }
 
-    private void scrollingTest()
+    public void googleMapsDirections(View view)
+    {
+        String address = cursor.getString(cursor.getColumnIndex(Contract.TABLE_ITEMS.COLUMN_NAME_ADDRESS));
+        address = address.replace(' ', '+');
+        address = address.replace(",", "");
+        Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                Uri.parse("google.navigation:q=" + address));
+        Log.d(TAG, address);
+        startActivity(intent);
+    }
+
+    private void scrollToRandom()
     {
         mp.start();
         button.setVisibility(View.GONE);
