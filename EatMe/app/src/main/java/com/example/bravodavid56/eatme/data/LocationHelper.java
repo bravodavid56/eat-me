@@ -119,20 +119,19 @@ public class LocationHelper implements PermissionUtility.PermissionResultCallbac
     public Location getLocation() {
 
         if (isPermissionGranted()) {
-
             try
             {
+
                 lastKnownLocation = LocationServices.FusedLocationApi
                         .getLastLocation(googleApiClient);
 
+                Log.e(TAG, "getLocation: LAST KNOWN LOCATION" + (lastKnownLocation==null));
                 return lastKnownLocation;
             }
             catch (SecurityException e)
             {
                 e.printStackTrace();
-
             }
-
         }
 
         return null;
