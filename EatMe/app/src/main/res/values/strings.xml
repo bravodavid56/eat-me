@@ -33,6 +33,7 @@
     <string name="categories">Categories: </string>
     <string name="rating">Rating: </string>
     <string name="phone">Phone: </string>
-
+    <string name="price">Price: </string>
+    <string name="fragButtonText">Directions</string>
 
 </resources>
