@@ -33,5 +33,6 @@
     <string name="categories">Categories: </string>
     <string name="rating">Rating: </string>
     <string name="phone">Phone: </string>
+    <string name="price">Price: </string>
 
 </resources>
