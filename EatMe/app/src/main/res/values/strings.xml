@@ -7,6 +7,24 @@
         <item>$$$$</item>
 
     </string-array>
+
+
+    <string-array name="rating_range_array">
+        <item>1 - 2</item>
+        <item>2 - 3</item>
+        <item>3 - 4</item>
+        <item>4 - 5</item>
+
+    </string-array>
+
+    <string name="pref_start_button_label">Start </string>
+
+    <string name="location_button_label">Locate me </string>
+    <string name="location_label">You are located here: </string>
+    <string name="food_edit">Please enter a type of food:</string>
+    <string name="price_label">Please choose price type: </string>
+    <string name="rating_label">Please choose restaurant rating range:</string>
+
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_nearby">Map</string>
     <string name="roulette_button">GO!</string>
@@ -15,4 +33,6 @@
     <string name="categories">Categories: </string>
     <string name="rating">Rating: </string>
     <string name="phone">Phone: </string>
+
+<!--->>>>>>> 8e16185da3640789147cda96be6d5cde30da2f29-->
 </resources>

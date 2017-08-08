@@ -2,10 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
+
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/business_image"
+        android:id="@+id/business_image1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -14,7 +15,7 @@
         android:padding="15dp"/>
 
     <TextView
-        android:id="@+id/business_name"
+        android:id="@+id/business_name1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -24,7 +25,7 @@
         android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/business_address"
+        android:id="@+id/business_address1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -49,7 +50,7 @@
             android:text="@string/phone"/>
 
         <TextView
-            android:id="@+id/business_phone"
+            android:id="@+id/business_phone1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -77,7 +78,7 @@
             android:text="@string/categories"/>
 
         <TextView
-            android:id="@+id/business_categories"
+            android:id="@+id/business_categories1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -105,7 +106,7 @@
             android:text="@string/review_count"/>
 
         <TextView
-            android:id="@+id/business_review_count"
+            android:id="@+id/business_review_count1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -132,7 +133,7 @@
             android:text="@string/rating"/>
 
         <TextView
-            android:id="@+id/business_rating"
+            android:id="@+id/business_rating1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -141,6 +142,63 @@
 
     </LinearLayout>
 
+
+
+  <!--  android:layout_height="wrap_content"> -->
+
+    <ImageView
+        android:id="@+id/business_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/business_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello"/>
+
+    <TextView
+        android:id="@+id/business_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/business_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/business_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/business_categories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/business_review_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/business_rating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/business_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+>>>>>>> 8e16185da3640789147cda96be6d5cde30da2f29
+
+    <Button
+        android:id="@+id/fragButton"
+        android:layout_width="168dp"
+        android:layout_height="wrap_content"
+        android:text="Show Me"
+
+        android:layout_gravity="center"/>
 
 
 </LinearLayout>
