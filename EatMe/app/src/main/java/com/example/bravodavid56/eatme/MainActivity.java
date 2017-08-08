@@ -11,14 +11,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.example.bravodavid56.eatme.activity1.*;
+import com.example.bravodavid56.eatme.activityRandom.*;
 import com.example.bravodavid56.eatme.activity2.*;
 import com.example.bravodavid56.eatme.activity3.*;
 import com.example.bravodavid56.eatme.data.RefreshTasks;
 
 import java.net.MalformedURLException;
 
-// just checking to see if im branching correctly 
+// just checking to see if im branching correctly
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Void> {
     private String TAG = "EatMe";

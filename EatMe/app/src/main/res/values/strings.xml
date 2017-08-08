@@ -27,5 +27,11 @@
 
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_nearby">Map</string>
+    <string name="roulette_button">GO!</string>
+    <string name="popup_text">By pressing \'GO!\' a random restaurant will be chosen for you.</string>
+    <string name="review_count">Reviews: </string>
+    <string name="categories">Categories: </string>
+    <string name="rating">Rating: </string>
+    <string name="phone">Phone: </string>
 
 </resources>
