@@ -97,7 +97,12 @@ public class BusinessItemAdapter extends RecyclerView.Adapter<BusinessItemAdapte
             double rating = cursor.getDouble(cursor.getColumnIndex(Contract.TABLE_ITEMS.COLUMN_NAME_RATING));
             String ratingString = Double.toString(rating);
             tv_business_rating.setText(ratingString);
-            tv_business_price.setText(cursor.getString(cursor.getColumnIndex(Contract.TABLE_ITEMS.COLUMN_NAME_PRICE)));
+
+            int priceInt = Integer.parseInt(cursor.getString(cursor.getColumnIndex(Contract.TABLE_ITEMS.COLUMN_NAME_PRICE)));
+            String priceString = "";
+            for (int i = 0; i < priceInt; i++)
+                priceString += "$";
+            tv_business_price.setText(priceString);
         }
     }
 }
