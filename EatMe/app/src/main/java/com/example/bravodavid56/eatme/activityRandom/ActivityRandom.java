@@ -59,11 +59,11 @@ public class ActivityRandom extends AppCompatActivity {
 
         button = (Button) findViewById(R.id.button_go);
         button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+            @Override
+            public void onClick(View v) {
                 scrollingTest();
-                        LinearLayout lay = (LinearLayout) findViewById(R.id.popup);
-                        lay.setVisibility(View.INVISIBLE);
+                LinearLayout lay = (LinearLayout) findViewById(R.id.popup);
+                lay.setVisibility(View.INVISIBLE);
             }
         });
 //       // new TestApiCall().execute();

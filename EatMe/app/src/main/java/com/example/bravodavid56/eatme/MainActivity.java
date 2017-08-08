@@ -18,7 +18,7 @@ import com.example.bravodavid56.eatme.data.RefreshTasks;
 
 import java.net.MalformedURLException;
 
-// just checking to see if im branching correctly 
+// just checking to see if im branching correctly
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Void> {
     private String TAG = "EatMe";

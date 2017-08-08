@@ -201,17 +201,7 @@ public class ActivityNearby extends FragmentActivity implements OnMapReadyCallba
                 }
                 return;
             }
-
-
-            // other 'case' lines to check for other permissions this app might request.
-            //You can add here other case statements according to your requirement.
         }
-//
-//        // Add a marker in Sydney and move the camera
-//        LatLng disney = new LatLng(33.811152, -117.921971);
-//        mMap.addMarker(new MarkerOptions().position(disney).title("Disneyland"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(disney));
-
     }
 }
 
