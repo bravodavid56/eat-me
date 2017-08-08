@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/business_image"
@@ -85,80 +85,89 @@
     </LinearLayout>
 
     <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginTop="8sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8sp">
+        android:layout_gravity="center_horizontal">
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginRight="8sp"
-            android:textSize="20sp"
-            android:textAlignment="center"
-            android:text="@string/review_count"/>
+            android:layout_marginLeft="10sp"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
 
-        <TextView
-            android:id="@+id/business_review_count"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="8sp"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:text="@string/review_count"/>
+
+            <TextView
+                android:id="@+id/business_review_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="20sp"
+                android:textAlignment="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:textSize="20sp"
-            android:textAlignment="center"/>
+            android:layout_marginLeft="10sp"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="8sp"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:text="@string/rating"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8sp">
+            <TextView
+                android:id="@+id/business_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="20sp"
+                android:textAlignment="center"/>
 
-        <TextView
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginRight="8sp"
-            android:textSize="20sp"
-            android:textAlignment="center"
-            android:text="@string/rating"/>
+            android:layout_marginLeft="10sp"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
 
-        <TextView
-            android:id="@+id/business_rating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:textSize="20sp"
-            android:textAlignment="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="8sp"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:text="@string/price"/>
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/business_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="20sp"
+                android:textAlignment="center"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8sp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginRight="8sp"
-            android:textSize="20sp"
-            android:textAlignment="center"
-            android:text="@string/price"/>
-
-        <TextView
-            android:id="@+id/business_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:textSize="20sp"
-            android:textAlignment="center"/>
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -168,7 +177,7 @@
         android:layout_marginBottom="10dp"
         android:layout_width="168dp"
         android:layout_height="wrap_content"
-        android:text="Show Me"
+        android:text="@string/fragButtonText"
         android:layout_gravity="center"/>
 
 </LinearLayout>
