@@ -8,9 +8,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 
-/**
- * Created by bravodavid56 on 8/2/2017.
- */
 
 public class RefreshTasks {
     public static void refreshArticles(Context context) {

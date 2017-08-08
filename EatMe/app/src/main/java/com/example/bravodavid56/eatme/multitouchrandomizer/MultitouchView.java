@@ -144,9 +144,9 @@ public class MultitouchView extends View {
             mPaint.setColor(colors[winner_index]);
             canvas.drawPaint(mPaint);
             mPaint.setColor(Color.WHITE);
-            canvas.drawCircle(winner.x, winner.y, SIZE+10, mPaint);
+            canvas.drawCircle(winner.x, winner.y, SIZE+30, mPaint);
             mPaint.setColor(colors[winner_index]);
-            canvas.drawCircle(winner.x,winner.y,SIZE,mPaint);
+            canvas.drawCircle(winner.x,winner.y,SIZE+20,mPaint);
 
         }
         angle += 8;
