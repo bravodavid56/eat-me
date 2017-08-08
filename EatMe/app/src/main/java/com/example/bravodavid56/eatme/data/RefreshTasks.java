@@ -12,11 +12,13 @@ import java.util.ArrayList;
 
 
 public class RefreshTasks {
+    private static final String TAG = "RefreshTasks";
+
     public static void refreshArticles(Context context, Address address) {
         ArrayList<BusinessItem> result;
         // this will hold all of the NewsItems
         URL url = NetworkUtils.buildUrl(address.getAddressLine(0) + " " + address.getAddressLine(1));
-
+        Log.e(TAG, "refreshArticles: " );
         SQLiteDatabase db = new DBHelper(context).getWritableDatabase();
 
         try {
