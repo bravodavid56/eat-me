@@ -53,6 +53,7 @@ public class ActivityRandom extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManagerWithSmoothScroller(this));
         db = new DBHelper(ActivityRandom.this).getReadableDatabase();
         cursor = DatabaseUtils.getAll(db);
+
         adapter = new BusinessItemAdapter(cursor);
         recyclerView.setAdapter(adapter);
 
