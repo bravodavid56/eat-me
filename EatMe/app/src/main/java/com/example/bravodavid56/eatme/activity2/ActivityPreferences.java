@@ -32,6 +32,7 @@ import com.example.bravodavid56.eatme.activityRandom.ActivityRandom;
 import com.example.bravodavid56.eatme.data.Contract;
 import com.example.bravodavid56.eatme.data.DBHelper;
 import com.example.bravodavid56.eatme.data.DatabaseUtils;
+import com.example.bravodavid56.eatme.data.LinearLayoutManagerWithSmoothScroller;
 import com.example.bravodavid56.eatme.data.LocationHelper;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -78,7 +79,7 @@ public class ActivityPreferences extends AppCompatActivity {
         m = MediaPlayer.create(this, R.raw.winning);
 
         recycle = (RecyclerView) findViewById(R.id.recyclerViewFilter);
-        recycle.setLayoutManager(new LinearLayoutManager(this));
+        recycle.setLayoutManager(new LinearLayoutManagerWithSmoothScroller(this));
 
         startButton = (Button) findViewById(R.id.enterButton);
 
