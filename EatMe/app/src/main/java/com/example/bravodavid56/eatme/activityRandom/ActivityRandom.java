@@ -128,6 +128,38 @@ public class ActivityRandom extends AppCompatActivity {
         }
     }
 
+//    class TestApiCall extends AsyncTask<String, Void, String> {
+//
+//        @Override
+//        protected String doInBackground(String... params) {
+//            try {
+//
+//                URL url = NetworkUtils.buildUrl("South Gate, CA");
+//                String response = NetworkUtils.getResponse(url);
+//                return response;
+//
+//                // prints the response just to show it's calling it correctly
+//
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            return null;
+//        }
+//
+//        @Override
+//        protected void onPostExecute(String s) {
+//            super.onPostExecute(s);
+//            TextView tx = (TextView) findViewById(R.id.textView);
+//            tx.setText(s);
+//            try {
+//                NetworkUtils.parseSearchJson(s);
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//
+//
+//    }
 
     @Override
     protected void onStart() {

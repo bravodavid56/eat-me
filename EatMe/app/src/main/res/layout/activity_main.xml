@@ -28,11 +28,6 @@
         android:layout_height="0dp"
         android:layout_width="match_parent"
         android:layout_weight="1"
-<<<<<<< Updated upstream
-=======
-        android:backgroundTint="#00005c"
-        android:id="@+id/prefButton"
->>>>>>> Stashed changes
         android:onClick="onPrefClick"
         android:text="@string/filterlabel"
         android:textColor="@color/white"

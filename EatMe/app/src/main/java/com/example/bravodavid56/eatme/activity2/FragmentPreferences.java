@@ -1,7 +1,5 @@
 package com.example.bravodavid56.eatme.activity2;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.DialogFragment;
@@ -15,10 +13,7 @@ import android.widget.TextView;
 import android.content.Intent;
 
 
-import com.example.bravodavid56.eatme.BusinessItemAdapter;
 import com.example.bravodavid56.eatme.R;
-import com.example.bravodavid56.eatme.data.DBHelper;
-import com.example.bravodavid56.eatme.data.DatabaseUtils;
 
 import org.w3c.dom.Text;
 
@@ -37,8 +32,6 @@ public class FragmentPreferences extends DialogFragment {
     private TextView  business_address;
     private TextView  business_number;
     private TextView business_price;
-
-
 
     private final String TAG = "fragment";
 
@@ -65,18 +58,9 @@ public class FragmentPreferences extends DialogFragment {
 
 
 
-<<<<<<< Updated upstream
         business_name.setText("Destination: " + place);
         business_price.setText("Price:" + price);
         business_rating.setText("Price:" + rating);
-=======
-
-
-
-            business_name.setText("Destination: " + place);
-            business_price.setText("Price:" + price);
-            business_rating.setText("Price:" + rating);
->>>>>>> Stashed changes
 
 
 
