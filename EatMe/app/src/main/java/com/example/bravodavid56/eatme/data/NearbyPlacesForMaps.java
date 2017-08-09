@@ -15,6 +15,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.List;
 
+import static com.example.bravodavid56.eatme.R.mipmap.stars;
+
 public class NearbyPlacesForMaps extends AsyncTask<Object, String, String> {
     String googlePlacesData;
     GoogleMap mMap;
