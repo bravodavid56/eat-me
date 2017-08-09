@@ -9,7 +9,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 
-public class RefreshTasks {
+public class RefreshTasks  {
     public static void refreshArticles(Context context) {
         ArrayList<BusinessItem> result;
         // this will hold all of the NewsItems

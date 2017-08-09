@@ -1,6 +1,8 @@
 package com.example.bravodavid56.eatme.activity2;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.location.Address;
 import android.location.Location;
 import android.net.Uri;
@@ -9,6 +11,8 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -20,7 +24,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bravodavid56.eatme.BusinessItemAdapter;
 import com.example.bravodavid56.eatme.R;
+import com.example.bravodavid56.eatme.activityRandom.ActivityRandom;
+import com.example.bravodavid56.eatme.data.Contract;
+import com.example.bravodavid56.eatme.data.DBHelper;
+import com.example.bravodavid56.eatme.data.DatabaseUtils;
 import com.example.bravodavid56.eatme.data.LocationHelper;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -36,11 +45,12 @@ public class ActivityPreferences extends AppCompatActivity
         GoogleApiClient.OnConnectionFailedListener,ActivityCompat.OnRequestPermissionsResultCallback {
 
     private String TAG = "preferencesTag";
-    private Location mLastLocation;
+
     private Button button;
     private Button startButton;
     private TextView addressText;
     private EditText edit;
+    private Location mLastLocation;
     double latitude;
     double longitude;
     LocationHelper locationHelper;
@@ -48,6 +58,15 @@ public class ActivityPreferences extends AppCompatActivity
     private Spinner spinnerRating;
 
 
+    private BusinessItemAdapter adapter;
+    private Cursor cursor;
+    private SQLiteDatabase db;
+
+    private String place;
+    private String price;
+    private String rating;
+
+    private RecyclerView recycle;
 
 //    private boolean start = false;
 
@@ -57,6 +76,9 @@ public class ActivityPreferences extends AppCompatActivity
         setContentView(R.layout.activity_preferences);
         locationHelper = new LocationHelper(this);
         locationHelper.checkpermission();
+
+        recycle = (RecyclerView) findViewById(R.id.recyclerViewFilter);
+        recycle.setLayoutManager(new LinearLayoutManager(this));
 
 
         button = (Button) findViewById(R.id.locateButton);
@@ -98,19 +120,27 @@ public class ActivityPreferences extends AppCompatActivity
             @Override
             public void onClick(View view) {
 
-                String price = spinnerPrice.getSelectedItem().toString();
+                 price = spinnerPrice.getSelectedItem().toString();
 
-                String rating = spinnerRating.getSelectedItem().toString();
+                 rating = spinnerRating.getSelectedItem().toString();
 
-                String placeEdit = edit.getText().toString();
-
-                Intent sendDataToFragment = new Intent(ActivityPreferences.this, FragmentPreferences.class);
+                 place = edit.getText().toString();
 
 
-                Bundle args = new Bundle();
-                args.putString("Place", placeEdit);
-                args.putString("Price", price);
-                args.putString("Rating", rating);
+                db = new DBHelper(ActivityPreferences.this).getReadableDatabase();
+                cursor = DatabaseUtils.getAllOrderBySelection(db, place,price,rating);
+                adapter = new BusinessItemAdapter(cursor);
+
+                recycle.setAdapter(adapter);
+
+
+//                Intent sendDataToFragment = new Intent(ActivityPreferences.this, FragmentPreferences.class);
+//
+//
+//                Bundle args = new Bundle();
+//                args.putString("Place", place);
+//                args.putString("Price", price);
+//                args.putString("Rating", rating);
 
 
 //                sendDataToFragment.putExtra("Place", placeEdit);
@@ -120,10 +150,10 @@ public class ActivityPreferences extends AppCompatActivity
 
 
 
-                FragmentManager fm = getSupportFragmentManager();
-                FragmentPreferences frag = new FragmentPreferences();
-                frag.setArguments(args);
-                frag.show(fm, "FragmentPreferences");
+//                FragmentManager fm = getSupportFragmentManager();
+//                FragmentPreferences frag = new FragmentPreferences();
+//                frag.setArguments(args);
+//                frag.show(fm, "FragmentPreferences");
             }
         });
 
@@ -162,6 +192,20 @@ public class ActivityPreferences extends AppCompatActivity
 
 
 
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        db = new DBHelper(ActivityPreferences.this).getReadableDatabase();
+        cursor = DatabaseUtils.getAll(db);
+        adapter = new BusinessItemAdapter(cursor);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        db.close();
+        cursor.close();
     }
 
 public void runAddress(){
