@@ -25,62 +25,61 @@ public class FragmentPreferences extends DialogFragment {
 
 
 
-        private Button add;
-        private ImageView business_image;
-        private TextView  business_name;
-        private TextView  business_rating;
-        private TextView  business_address;
-        private TextView  business_number;
-        private TextView business_price;
+    private Button add;
+    private ImageView business_image;
+    private TextView  business_name;
+    private TextView  business_rating;
+    private TextView  business_address;
+    private TextView  business_number;
+    private TextView business_price;
 
     private final String TAG = "fragment";
 
-        public FragmentPreferences() {
-        }
-
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View view = inflater.inflate(R.layout.business_list_item, container, false);
-
-
-            business_image = (ImageView) view.findViewById(R.id.business_image);
-            business_name = (TextView) view.findViewById(R.id.business_name);
-            business_address = (TextView) view.findViewById(R.id.business_address);
-            business_number = (TextView) view.findViewById(R.id.business_phone);
-            business_rating = (TextView) view.findViewById(R.id.business_rating);
-            business_price = (TextView) view.findViewById(R.id.business_price);
-
-            Bundle args = getArguments();
-            String place = args.getString("Place");
-            String price = args.getString("Price");
-            String rating = args.getString("Rating");
-
-
-
-            business_name.setText("Destination: " + place);
-            business_price.setText("Price:" + price);
-            business_rating.setText("Price:" + rating);
-
-
-
-
-
-            add = (Button) view.findViewById(R.id.fragButton);
-
-
-
-
-
-
-            add.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //Do something on click
-                }
-            });
-
-            return view;
-        }
+    public FragmentPreferences() {
     }
 
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.business_list_item, container, false);
+
+
+        business_image = (ImageView) view.findViewById(R.id.business_image);
+        business_name = (TextView) view.findViewById(R.id.business_name);
+        business_address = (TextView) view.findViewById(R.id.business_address);
+        business_number = (TextView) view.findViewById(R.id.business_phone);
+        business_rating = (TextView) view.findViewById(R.id.business_rating);
+        business_price = (TextView) view.findViewById(R.id.business_price);
+
+        Bundle args = getArguments();
+        String place = args.getString("Place");
+        String price = args.getString("Price");
+        String rating = args.getString("Rating");
+
+
+
+        business_name.setText("Destination: " + place);
+        business_price.setText("Price:" + price);
+        business_rating.setText("Price:" + rating);
+
+
+
+
+
+        add = (Button) view.findViewById(R.id.fragButton);
+
+
+
+
+
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Do something on click
+            }
+        });
+
+        return view;
+    }
+}

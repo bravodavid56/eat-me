@@ -1,5 +1,7 @@
 package com.example.bravodavid56.eatme.data;
 
+import android.provider.ContactsContract;
+
 import java.util.List;
 
 /**
@@ -18,6 +20,7 @@ public class BusinessItem {
     private double rating;
     private String categories; // need to create a method to convert the list to string and string to list
     private String price;
+    private String Image;
 
     public BusinessItem(String id, String name, String image_url, String url, String display_phone, int review_count, String address, double rating, String categories, String price) {
         this.id = id;
@@ -116,4 +119,9 @@ public class BusinessItem {
     public void setRating(double rating) {
         this.rating = rating;
     }
+
+    public void setImage() { this.Image = Image; }
+
+    public String getImage() { return this.Image; }
+
 }
