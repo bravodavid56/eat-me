@@ -8,6 +8,8 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+import static com.google.android.gms.plus.PlusOneDummyView.TAG;
+
 /**
  * Created by EVAN on 7/29/2017.
  */
@@ -62,19 +64,12 @@ public class DatabaseUtils {
 
     public static Cursor getAllOrderBySelection(SQLiteDatabase db, String place, String price, String rating)
     {
-        Cursor cursor = db.query(
-                Contract.TABLE_ITEMS.TABLE_NAME,
-                null,
-                Contract.TABLE_ITEMS.COLUMN_NAME_NAME + " = ?" + " AND "
-                        + Contract.TABLE_ITEMS.COLUMN_NAME_PRICE + " = ? " + " AND " +
-                        Contract.TABLE_ITEMS.COLUMN_NAME_RATING + " = ? " ,
 
-                new String[] { place, price, rating },
-                null,
-                null,
-                null,
-                null
-        );
+        Log.e(TAG, "getAllOrderBySelection: " + place + " " + price + " " + rating);
+        String sqlStatement = "SELECT * FROM " + Contract.TABLE_ITEMS.TABLE_NAME + " WHERE " +
+                "PRICE = ? AND RATING LIKE '"+rating+"%' AND CATEGORIES LIKE '%"+place+"%'" ;
+        Cursor cursor = db.rawQuery(sqlStatement, new String[] {price}) ;
+
         return cursor;
     }
 

@@ -106,11 +106,15 @@ public class ActivityPreferences extends AppCompatActivity {
 
                 price = spinnerPrice.getSelectedItem().toString();
 
+                int price2 = price.length();
+
                 rating = spinnerRating.getSelectedItem().toString();
 
 
                 db = new DBHelper(ActivityPreferences.this).getReadableDatabase();
-                cursor = DatabaseUtils.getAllOrderBySelection(db, placeEdit, price, rating);
+
+
+                cursor = DatabaseUtils.getAllOrderBySelection(db, placeEdit, String.valueOf(price2), rating);
 
 
 
