@@ -18,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Spinner;
 
 import com.example.bravodavid56.eatme.activityRandom.*;
 import com.example.bravodavid56.eatme.activity2.*;
@@ -68,6 +69,8 @@ GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,
             locationHelper.buildGoogleApiClient();
 
         }
+
+
     }
 
     @Override

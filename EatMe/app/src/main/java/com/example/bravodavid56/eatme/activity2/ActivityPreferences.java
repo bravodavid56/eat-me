@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,7 +34,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 public class ActivityPreferences extends AppCompatActivity
         implements GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener,ActivityCompat.OnRequestPermissionsResultCallback {
+        GoogleApiClient.OnConnectionFailedListener,ActivityCompat.OnRequestPermissionsResultCallback{
 
     private String TAG = "preferencesTag";
     private Location mLastLocation;
@@ -46,6 +47,8 @@ public class ActivityPreferences extends AppCompatActivity
     LocationHelper locationHelper;
     private Spinner spinnerPrice;
     private Spinner spinnerRating;
+    int ratings[] = {R.mipmap.stars};
+    String[] names = {};
 
 
     @Override
@@ -55,7 +58,11 @@ public class ActivityPreferences extends AppCompatActivity
         locationHelper = new LocationHelper(this);
         locationHelper.checkpermission();
 
-
+//        Spinner spin = (Spinner) findViewById(R.id.spinnerRating);
+//        spin.setOnItemSelectedListener(this);
+//
+//        CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), ratings);
+//        spin.setAdapter(customAdapter);
 
         button = (Button) findViewById(R.id.locateButton);
         startButton = (Button) findViewById(R.id.enterButton);
@@ -153,6 +160,17 @@ public class ActivityPreferences extends AppCompatActivity
 
 
     }
+
+//
+//    //Performing action onItemSelected and onNothing selected
+//    @Override
+//    public void onItemSelected(AdapterView<?> arg0, View arg1, int position,long id) {
+//        Toast.makeText(getApplicationContext(), names[position], Toast.LENGTH_LONG).show();
+//    }
+//
+//    @Override
+//    public void onNothingSelected(AdapterView<?> arg0) {
+//    }
 
 public void runAddress(){
     mLastLocation = locationHelper.getLocation();
