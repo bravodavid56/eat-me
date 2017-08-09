@@ -3,6 +3,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.example.bravodavid56.eatme.DownloadUrl;
+import com.example.bravodavid56.eatme.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -13,6 +14,8 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.List;
+
+import static com.example.bravodavid56.eatme.R.mipmap.stars;
 
 public class NearbyPlacesForMaps extends AsyncTask<Object, String, String> {
     String googlePlacesData;
@@ -57,7 +60,7 @@ public class NearbyPlacesForMaps extends AsyncTask<Object, String, String> {
             markerOptions.position(latLng);
             markerOptions.title(placeName + " : " + vicinity);
             mMap.addMarker(markerOptions);
-            markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+            markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
             //move map camera
             mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
             mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
