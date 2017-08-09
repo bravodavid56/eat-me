@@ -133,7 +133,7 @@
                 android:textAlignment="center"
                 android:text="@string/rating"/>
 
-            <TextView
+            <ImageView
                 android:id="@+id/business_rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

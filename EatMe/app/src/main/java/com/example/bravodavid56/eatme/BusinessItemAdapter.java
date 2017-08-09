@@ -59,7 +59,7 @@ public class BusinessItemAdapter extends RecyclerView.Adapter<BusinessItemAdapte
         public final TextView tv_business_phone;
         public final TextView tv_business_categories;
         public final TextView tv_business_review_count;
-        public final TextView tv_business_rating;
+        public final ImageView tv_business_rating;
         public final TextView tv_business_price;
 
         public BusinessItemViewHolder(View view)
@@ -71,7 +71,7 @@ public class BusinessItemAdapter extends RecyclerView.Adapter<BusinessItemAdapte
             tv_business_phone = (TextView) view.findViewById(R.id.business_phone);
             tv_business_categories = (TextView) view.findViewById(R.id.business_categories);
             tv_business_review_count = (TextView) view.findViewById(R.id.business_review_count);
-            tv_business_rating = (TextView) view.findViewById(R.id.business_rating);
+            tv_business_rating = (ImageView) view.findViewById(R.id.business_rating);
             tv_business_price = (TextView) view.findViewById(R.id.business_price);
 
         }
@@ -97,14 +97,38 @@ public class BusinessItemAdapter extends RecyclerView.Adapter<BusinessItemAdapte
             tv_business_review_count.setText(countString);
 
             double rating = cursor.getDouble(cursor.getColumnIndex(Contract.TABLE_ITEMS.COLUMN_NAME_RATING));
-            String ratingString = Double.toString(rating);
-            tv_business_rating.setText(ratingString);
+            setRatingImage(rating);
+
+//            String ratingString = Double.toString(rating);
+//            tv_business_rating.setText(ratingString);
 
             int priceInt = Integer.parseInt(cursor.getString(cursor.getColumnIndex(Contract.TABLE_ITEMS.COLUMN_NAME_PRICE)));
             String priceString = "";
             for (int i = 0; i < priceInt; i++)
                 priceString += "$";
             tv_business_price.setText(priceString);
+        }
+
+        private void setRatingImage(double rating)
+        {
+            if (rating == 5.0)
+                Picasso.with(context).load(R.drawable.fivestar).into(tv_business_rating);
+            else if (rating == 4.5)
+                Picasso.with(context).load(R.drawable.fourandhalfstar).into(tv_business_rating);
+            else if (rating == 4.0)
+                Picasso.with(context).load(R.drawable.fourstar).into(tv_business_rating);
+            else if (rating == 3.5)
+                Picasso.with(context).load(R.drawable.threeandhalfstar).into(tv_business_rating);
+            else if (rating == 3.0)
+                Picasso.with(context).load(R.drawable.threestar).into(tv_business_rating);
+            else if (rating == 2.5)
+                Picasso.with(context).load(R.drawable.twoandhalfstar).into(tv_business_rating);
+            else if (rating == 2.0)
+                Picasso.with(context).load(R.drawable.twostar).into(tv_business_rating);
+            else if (rating == 1.5)
+                Picasso.with(context).load(R.drawable.oneandhalfstar).into(tv_business_rating);
+            else
+                Picasso.with(context).load(R.drawable.onestar).into(tv_business_rating);
         }
     }
 }
