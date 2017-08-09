@@ -34,7 +34,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.net.MalformedURLException;
 
-// just checking to see if im branching correctly
+
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Void>,
 GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, ActivityCompat.OnRequestPermissionsResultCallback {

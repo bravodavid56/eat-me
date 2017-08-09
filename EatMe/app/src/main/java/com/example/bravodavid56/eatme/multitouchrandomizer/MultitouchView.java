@@ -164,7 +164,6 @@ public class MultitouchView extends View {
                 winner = point;
                 winner_index = index;
 
-
             }
         }
 

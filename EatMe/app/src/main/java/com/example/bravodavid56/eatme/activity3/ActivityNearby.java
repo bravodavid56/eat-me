@@ -46,7 +46,7 @@ public class ActivityNearby extends FragmentActivity implements OnMapReadyCallba
     LocationRequest mLocationRequest;
     double latitude;
     double longitude;
-    private int PROXIMITY_RADIUS = 10000;
+    private int PROXIMITY_RADIUS = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
