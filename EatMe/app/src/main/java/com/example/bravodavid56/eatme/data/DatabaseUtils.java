@@ -69,7 +69,7 @@ public class DatabaseUtils {
         String sqlStatement = "SELECT * FROM " + Contract.TABLE_ITEMS.TABLE_NAME + " WHERE " +
                 "PRICE = ? AND RATING LIKE '"+rating+"%' AND CATEGORIES LIKE '%"+place+"%'" ;
         Cursor cursor = db.rawQuery(sqlStatement, new String[] {price}) ;
-
+        Log.e(TAG, "getAllOrderBySelection: " + cursor.getCount() );
         return cursor;
     }
 

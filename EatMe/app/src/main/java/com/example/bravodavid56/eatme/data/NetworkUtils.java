@@ -45,6 +45,7 @@ public class NetworkUtils {
         Uri builtUri = Uri.parse(BASE_URL+"/search").buildUpon()
                 .appendQueryParameter("location", location)
                 .appendQueryParameter("categories","food")
+                .appendQueryParameter("limit","50")
                 .build();
 
         URL url = null;

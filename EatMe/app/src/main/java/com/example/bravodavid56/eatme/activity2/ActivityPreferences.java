@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.location.Address;
 import android.location.Location;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -35,6 +36,8 @@ import com.example.bravodavid56.eatme.data.LocationHelper;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.Random;
+
 import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 
 /**
@@ -63,10 +66,16 @@ public class ActivityPreferences extends AppCompatActivity {
     private String price;
     private String rating;
 
+    private MediaPlayer m;
+    private MediaPlayer mp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preferences);
+
+        mp = MediaPlayer.create(this, R.raw.spinning);
+        m = MediaPlayer.create(this, R.raw.winning);
 
         recycle = (RecyclerView) findViewById(R.id.recyclerViewPreferences);
         recycle.setLayoutManager(new LinearLayoutManager(this));
@@ -77,6 +86,8 @@ public class ActivityPreferences extends AppCompatActivity {
         spinnerPrice = (Spinner) findViewById(R.id.spinnerPrice);
         spinnerRating = (Spinner) findViewById(R.id.spinnerRating);
         edit = (EditText) findViewById(R.id.select_place);
+
+
 
 
         final ArrayAdapter<CharSequence> spinnerPriceAdapter = ArrayAdapter.createFromResource(this,
@@ -90,66 +101,43 @@ public class ActivityPreferences extends AppCompatActivity {
         spinnerRating.setAdapter(spinnerRatingAdapter);
 
 
-//        while (cursor.getCount() == 0) {
-//            cursor.close();
-//            cursor = DatabaseUtils.getAllOrderBySelection(db, placeEdit, price, rating);
-//
-//        }
 
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+
                 placeEdit = edit.getText().toString();
 
-
                 price = spinnerPrice.getSelectedItem().toString();
-
                 int price2 = price.length();
-
                 rating = spinnerRating.getSelectedItem().toString();
-
 
                 db = new DBHelper(ActivityPreferences.this).getReadableDatabase();
 
-
                 cursor = DatabaseUtils.getAllOrderBySelection(db, placeEdit, String.valueOf(price2), rating);
+                if (cursor.getCount() == 0) {
+                    Toast.makeText(ActivityPreferences.this, "No results found. Try again.", Toast.LENGTH_SHORT).show();
+                } else {
+                    LinearLayout preferencesPopup = (LinearLayout) findViewById(R.id.popupPreferences);
+                    preferencesPopup.setVisibility(View.INVISIBLE);
+                    adapter = new BusinessItemAdapter(cursor);
+                    adapter.notifyDataSetChanged();
+                    recycle.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
 
 
 
-                LinearLayout preferencesPopup = (LinearLayout) findViewById(R.id.popupPreferences);
-                preferencesPopup.setVisibility(View.INVISIBLE);
 
-                Log.i("Place", placeEdit);
-                Log.i("Price", price);
-                Log.i("Rating", rating);
+                    scrollToRandom();
+                }
 
-                adapter = new BusinessItemAdapter(cursor);
-                recycle.setAdapter(adapter);
+
             }
         });
     }
 
-
-    //Intent sendDataToFragment = new Intent(ActivityPreferences.this, FragmentPreferences.class);
-
-
-//                db = new DBHelper(ActivityPreferences.this).getReadableDatabase();
-//                cursor = DatabaseUtils.getAllByPrice(db,price);
-//                adapter = new BusinessItemAdapter(cursor);
-
-
-//                Bundle args = new Bundle();
-//                args.putString("Place", placeEdit);
-//                args.putString("Price", price);
-//                args.putString("Rating", rating);
-//
-//
-//                FragmentManager fm = getSupportFragmentManager();
-//                FragmentPreferences frag = new FragmentPreferences();
-//                frag.setArguments(args);
-//                frag.show(fm, "FragmentPreferences");
 
 
     @Override
@@ -168,6 +156,58 @@ public class ActivityPreferences extends AppCompatActivity {
         cursor.close();
     }
 
+    public void googleMapsDirections(View view)
+    {
+        String address = cursor.getString(cursor.getColumnIndex(Contract.TABLE_ITEMS.COLUMN_NAME_ADDRESS));
+        address = address.replace(' ', '+');
+        address = address.replace(",", "");
+        Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                Uri.parse("google.navigation:q=" + address));
+        Log.d(TAG, address);
+        startActivity(intent);
+    }
+
+    private void scrollToRandom()
+    {
+
+        Random random = new Random();
+        int count = cursor.getCount();
+        int i = random.nextInt(count);
+        Log.d(TAG, "random value: " + Integer.toString(i));
+        if (i == 0)
+        {
+            m.start();
+        }
+        else{
+            mp.start();
+
+            recycle.smoothScrollToPosition(i);
+            recycle.addOnScrollListener(new ActivityPreferences.CustomScrollListener(i));
+        }
+
+    }
+
+    class CustomScrollListener extends RecyclerView.OnScrollListener{
+
+        private int pos;
+
+        public CustomScrollListener(int pos){
+            super();
+            this.pos = pos;
+        }
+
+        @Override
+        public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            super.onScrollStateChanged(recyclerView, newState);
+            if (newState == RecyclerView.SCROLL_STATE_IDLE)
+            {
+                recyclerView.scrollToPosition(pos);
+                mp.pause();
+                //mp = MediaPlayer.create(this, R.raw.winning);
+                m.start();
+            }
+        }
+    }
 }
 
 
@@ -175,31 +215,6 @@ public class ActivityPreferences extends AppCompatActivity {
 
 
 
-
-
-
-//        textView.setText("You clicked Preferences");
-//        startButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                showToast("Proceed to the next step");
-//
-//
-//                String label = "Restauraunt Title";
-//                String uriBegin = "geo:" + latitude + "," + longitude;
-//                String query = latitude + "," + longitude + "(" + label + ")";
-//                String encodedQuery = Uri.encode(query);
-//                String uriString = uriBegin + "?q=" + encodedQuery + "&z=16";
-//                Uri uri = Uri.parse(uriString);
-//                Intent mapIntent = new Intent(android.content.Intent.ACTION_VIEW, uri);
-//                startActivity(mapIntent);
-//                mapIntent.setPackage("com.google.android.apps.maps");
-//                if (mapIntent.resolveActivity(getPackageManager()) != null) {
-//                    startActivity(mapIntent);
-//                }
-//            }
-//        });
-//
 
 
 
