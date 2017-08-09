@@ -60,7 +60,9 @@ public class NearbyPlacesForMaps extends AsyncTask<Object, String, String> {
             markerOptions.position(latLng);
             markerOptions.title(placeName + " : " + vicinity);
             mMap.addMarker(markerOptions);
+//            markerOptions.icon(BitmapDescriptorFactory.fromResource(R.mipmap.fork));
             markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
+
             //move map camera
             mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
             mMap.animateCamera(CameraUpdateFactory.zoomTo(11));

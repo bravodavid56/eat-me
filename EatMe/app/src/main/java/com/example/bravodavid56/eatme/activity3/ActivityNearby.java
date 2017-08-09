@@ -46,7 +46,7 @@ public class ActivityNearby extends FragmentActivity implements OnMapReadyCallba
     LocationRequest mLocationRequest;
     double latitude;
     double longitude;
-    private int PROXIMITY_RADIUS = 10000;
+    private int PROXIMITY_RADIUS = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -163,7 +163,9 @@ public class ActivityNearby extends FragmentActivity implements OnMapReadyCallba
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
         markerOptions.title("Current Position");
-        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
+        markerOptions.icon(BitmapDescriptorFactory.fromResource(R.mipmap.stick));
+
+        //markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         mCurrLocationMarker = mMap.addMarker(markerOptions);
 
         //move map camera

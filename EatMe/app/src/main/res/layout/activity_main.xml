@@ -22,13 +22,13 @@
         android:textSize="30sp"/>
     <Button
         android:id="@+id/filterBackground"
-        android:backgroundTint="#8400005c"
+        android:backgroundTint="#fd00005c"
+
         android:layout_height="0dp"
         android:layout_width="match_parent"
         android:layout_weight="1"
         android:onClick="onPrefClick"
-        android:text="@string/filters"
-        android:background="@drawable/image_border"
+        android:text="@string/filterlabel"
         android:textColor="@color/white"
         android:textSize="30sp"
        />

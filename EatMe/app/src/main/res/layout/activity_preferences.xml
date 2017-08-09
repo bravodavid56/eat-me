@@ -1,84 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/locateButton"
-        android:layout_width="145dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/location_button_label" />
-
-    <TextView
-        android:id="@+id/textViewLabel"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/location_label"
-        />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView2"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerViewPreferences"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"> </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/popupPreferences"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="address" />
+        android:layout_height="match_parent"
+        android:layout_margin="1dp"
+        android:background="@color/dark_gray"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/enterText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/food_edit"
-        />
+        <TextView
+            android:id="@+id/enterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/food_edit"
+            />
 
 
-    <EditText
-        android:id="@+id/select_place"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-         />
+        <EditText
+            android:id="@+id/select_place"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            />
 
-    <TextView
-    android:id="@+id/priceLabel"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="@string/price_label"
-        />
+        <TextView
+            android:id="@+id/priceLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/price_label"
+            />
 
-    <Spinner
-        android:id="@+id/spinnerPrice"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:entries="@array/price_range_array"
-        android:layout_gravity="center"/>
+        <Spinner
+            android:id="@+id/spinnerPrice"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:entries="@array/price_range_array"
+            android:layout_gravity="center"/>
 
-    <TextView
-        android:id="@+id/ratingLabel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/rating_label"
-        />
+        <TextView
+            android:id="@+id/ratingLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rating_label"
+            />
 
-    <!--<ImageView android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@+id/imageView"-->
-        <!--android:layout_margin="4dp"-->
-        <!--android:layout_gravity="center_vertical"-->
-        <!--android:src="@mipmap/stars"-->
-        <!--/>-->
+        <Spinner
+            android:id="@+id/spinnerRating"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:entries="@array/rating_range_array"
+            android:layout_gravity="center"
+            />
+        <Button
+            android:id="@+id/enterButton"
+            android:layout_width="145dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/pref_start_button_label" />
 
-    <Spinner
-        android:id="@+id/spinnerRating"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:entries="@array/rating_range_array"
-        android:layout_gravity="center" />
 
-    <Button
-        android:id="@+id/enterButton"
-        android:layout_width="145dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/pref_start_button_label" />
-</LinearLayout>
+    </LinearLayout>
+
+
+
+</FrameLayout>
