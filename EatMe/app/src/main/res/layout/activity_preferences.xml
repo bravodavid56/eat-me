@@ -1,41 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerViewPreferences"
+            android:id="@+id/recyclerViewFilter"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"> </android.support.v7.widget.RecyclerView>
+            android:layout_height="match_parent">
+        </android.support.v7.widget.RecyclerView>
     </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/popupPreferences"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="1dp"
-        android:background="@color/dark_gray"
+        android:background="#b700005c"
         android:orientation="vertical">
-
+        <TextView
+            android:id="@+id/welcomeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Welcome\n You are one step closer to finding your restaurant"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:padding="20dp"
+            />
         <TextView
             android:id="@+id/enterText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/food_edit"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:gravity="center"
             />
 
 
         <EditText
             android:id="@+id/select_place"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="14"
+            android:textColor="#FFFFFF"
             android:inputType="textPersonName"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             />
 
         <TextView
@@ -43,39 +62,61 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/price_label"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:paddingTop="20dp"
             />
 
         <Spinner
             android:id="@+id/spinnerPrice"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
             android:entries="@array/price_range_array"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:backgroundTint="#FFFFFF"
+
+            />
 
         <TextView
             android:id="@+id/ratingLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/rating_label"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:gravity="center"
+
             />
 
         <Spinner
             android:id="@+id/spinnerRating"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
             android:entries="@array/rating_range_array"
             android:layout_gravity="center"
+            android:backgroundTint="#FFFFFF"
             />
+
+
+
         <Button
             android:id="@+id/enterButton"
-            android:layout_width="145dp"
-            android:layout_height="wrap_content"
+            android:layout_width="207dp"
+            android:layout_height="109dp"
             android:layout_gravity="center"
-            android:text="@string/pref_start_button_label" />
+            android:background="@drawable/filterbutton"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:layout_marginTop="80dp"
 
+            android:shadowRadius="3"
+            android:text="@string/pref_start_button_label"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:visibility="visible" />
 
     </LinearLayout>
-
-
 
 </FrameLayout>

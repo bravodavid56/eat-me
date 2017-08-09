@@ -147,6 +147,11 @@ public class MultitouchView extends View {
             canvas.drawCircle(winner.x, winner.y, SIZE+30, mPaint);
             mPaint.setColor(colors[winner_index]);
             canvas.drawCircle(winner.x,winner.y,SIZE+20,mPaint);
+            mPaint.setColor(Color.WHITE);
+            canvas.drawRect(canvas.getWidth()/3, canvas.getHeight()/10,(canvas.getWidth()/3)*2, (canvas.getHeight()/10)+50, mPaint);
+            textPaint.setColor(colors[winner_index]);
+            textPaint.setTextSize(65);
+            canvas.drawText(" W I N N E R",canvas.getWidth()/3, canvas.getHeight()/10+45, textPaint );
 
         }
         angle += 8;
@@ -159,12 +164,10 @@ public class MultitouchView extends View {
                 winner = point;
                 winner_index = index;
 
-                Log.e(TAG, "WINNER HAS BEEN DRAWN");
+
             }
         }
 
-
-        canvas.drawText("Total pointers: " + mActivePointers.size(), 10, 40 , textPaint);
 
     }
 

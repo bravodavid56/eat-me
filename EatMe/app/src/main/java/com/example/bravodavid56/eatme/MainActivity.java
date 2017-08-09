@@ -146,7 +146,6 @@ GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return true;
@@ -155,7 +154,7 @@ GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.connect) {
-            Log.e(TAG, "onOptionsItemSelected: YOU SELECTED CONNECT" );
+
             Intent intent = new Intent(this, Multitouch.class);
             startActivity(intent);
 

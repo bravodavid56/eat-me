@@ -77,7 +77,7 @@ public class ActivityPreferences extends AppCompatActivity {
         mp = MediaPlayer.create(this, R.raw.spinning);
         m = MediaPlayer.create(this, R.raw.winning);
 
-        recycle = (RecyclerView) findViewById(R.id.recyclerViewPreferences);
+        recycle = (RecyclerView) findViewById(R.id.recyclerViewFilter);
         recycle.setLayoutManager(new LinearLayoutManager(this));
 
         startButton = (Button) findViewById(R.id.enterButton);
@@ -128,8 +128,6 @@ public class ActivityPreferences extends AppCompatActivity {
                     adapter.notifyDataSetChanged();
 
 
-
-
                     scrollToRandom();
                 }
 
@@ -145,8 +143,8 @@ public class ActivityPreferences extends AppCompatActivity {
         super.onStart();
         db = new DBHelper(ActivityPreferences.this).getReadableDatabase();
         cursor = DatabaseUtils.getAll(db);
-        adapter = new BusinessItemAdapter(cursor);
-        recycle.setAdapter(adapter);
+        //adapter = new BusinessItemAdapter(cursor);
+        //recycle.setAdapter(adapter);
     }
 
     @Override
