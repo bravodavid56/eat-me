@@ -45,6 +45,39 @@ public class DatabaseUtils {
         return cursor;
     }
 
+    public static Cursor getAllByPrice(SQLiteDatabase db, String price)
+    {
+        Cursor cursor = db.query(
+                Contract.TABLE_ITEMS.TABLE_NAME,
+                null,
+                null,
+                null,
+                null,
+                null,
+                price,
+                null
+        );
+        return cursor;
+    }
+
+    public static Cursor getAllOrderBySelection(SQLiteDatabase db, String place, String price, String rating)
+    {
+        Cursor cursor = db.query(
+                Contract.TABLE_ITEMS.TABLE_NAME,
+                null,
+                Contract.TABLE_ITEMS.COLUMN_NAME_NAME + " = ?" + " AND "
+                        + Contract.TABLE_ITEMS.COLUMN_NAME_PRICE + " = ? " + " AND " +
+                        Contract.TABLE_ITEMS.COLUMN_NAME_RATING + " = ? " ,
+
+                new String[] { place, price, rating },
+                null,
+                null,
+                null,
+                null
+        );
+        return cursor;
+    }
+
     public static void bulkInsert(SQLiteDatabase db, ArrayList<BusinessItem> items)
     {
         db.beginTransaction();

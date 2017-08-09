@@ -36,5 +36,6 @@
     <string name="phone">Phone: </string>
     <string name="price">Price: </string>
     <string name="fragButtonText">Directions</string>
+    <string name="filterlabel" zindex="997">FILTERS</string>
 
 </resources>
