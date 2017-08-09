@@ -86,10 +86,9 @@ GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,
     // each method starts a new activity
     // each activity is in its own package,
     public void onRandomClick(View view) throws MalformedURLException {
-        Log.e(TAG, "onRandomClick: " );
+        Log.e(TAG, "onRandomClick: ");
         Intent intent = new Intent(this, ActivityRandom.class);
         startActivity(intent);
-
     }
 
     public void onPrefClick(View view) {
@@ -231,3 +230,4 @@ GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,
 
 
 }
+
