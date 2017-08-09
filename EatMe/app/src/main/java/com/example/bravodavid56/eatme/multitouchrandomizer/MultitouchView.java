@@ -18,7 +18,7 @@ import java.util.Random;
 
 public class MultitouchView extends View {
 
-    private static final int SIZE = 60;
+    private static final int SIZE = 100;
     private static final String TAG = "MULTITOUCHVIEW";
 
     private SparseArray<PointF> mActivePointers;
@@ -138,7 +138,7 @@ public class MultitouchView extends View {
                 // this is the inner ring
                 canvas.drawCircle(point.x, point.y, SIZE, mPaint);
                 mPaint.setColor(Color.WHITE);
-                canvas.drawArc(point.x - 81, point.y - 81, point.x + 81, point.y + 81, (angle), 10, false, mPaint);
+                canvas.drawArc(point.x - 121, point.y - 121, point.x + 121, point.y + 121, (angle), 10, false, mPaint);
             }
         } else {
             mPaint.setColor(colors[winner_index]);

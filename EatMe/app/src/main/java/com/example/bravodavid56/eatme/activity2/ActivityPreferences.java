@@ -58,6 +58,7 @@ public class ActivityPreferences extends AppCompatActivity
     private Spinner spinnerRating;
 
 
+<<<<<<< HEAD
     private BusinessItemAdapter adapter;
     private Cursor cursor;
     private SQLiteDatabase db;
@@ -70,6 +71,8 @@ public class ActivityPreferences extends AppCompatActivity
 
 //    private boolean start = false;
 
+=======
+>>>>>>> master
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,6 +82,7 @@ public class ActivityPreferences extends AppCompatActivity
 
         recycle = (RecyclerView) findViewById(R.id.recyclerViewFilter);
         recycle.setLayoutManager(new LinearLayoutManager(this));
+
 
 
         button = (Button) findViewById(R.id.locateButton);
@@ -148,12 +152,19 @@ public class ActivityPreferences extends AppCompatActivity
 //                sendDataToFragment.putExtra("Rating", rating);
 //                startActivity(sendDataToFragment);
 
+<<<<<<< HEAD
 
 
 //                FragmentManager fm = getSupportFragmentManager();
 //                FragmentPreferences frag = new FragmentPreferences();
 //                frag.setArguments(args);
 //                frag.show(fm, "FragmentPreferences");
+=======
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentPreferences frag = new FragmentPreferences();
+                frag.setArguments(args);
+                frag.show(fm, "FragmentPreferences");
+>>>>>>> master
             }
         });
 
@@ -181,15 +192,9 @@ public class ActivityPreferences extends AppCompatActivity
 //
 //        // check availability of play services
         if (locationHelper.checkPlayServices()) {
-
             // Building the GoogleApi client
             locationHelper.buildGoogleApiClient();
-
-
         }
-
-
-
 
 
     }
@@ -278,9 +283,6 @@ public void runAddress(){
                 Log.d(TAG, "Address");
                 Log.d(currentLocation, "here");
 
-
-
-
                 if (!button.isEnabled()) {
                     button.setEnabled(true);
                 }
@@ -320,6 +322,7 @@ public void runAddress(){
     public void onConnected(Bundle arg0) {
 
         // Once connected with google api, get the location
+
         mLastLocation=locationHelper.getLocation();
     }
 
@@ -327,7 +330,6 @@ public void runAddress(){
     public void onConnectionSuspended(int arg0) {
         locationHelper.connectApiClient();
     }
-
 
     // Permission check functions
     @Override

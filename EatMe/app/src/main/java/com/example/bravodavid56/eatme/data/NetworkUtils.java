@@ -18,6 +18,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static com.google.android.gms.plus.PlusOneDummyView.TAG;
+
 /**
  * Created by bravodavid56 on 7/30/2017.
  */
@@ -124,51 +126,65 @@ public class NetworkUtils {
         // This method parses the JSON received when calling the /search API
         // with a location attached
 
+
+
+
+
         JSONObject rawObject = new JSONObject(rawJson);
         JSONArray businesses = rawObject.getJSONArray("businesses");
 
         ArrayList<BusinessItem> bi = new ArrayList<>();
 
         for (int i = 0; i < businesses.length(); i++) {
-            JSONObject test = (JSONObject) businesses.get(i);
-
-            String id = test.getString("id");
-
-            String name = test.getString("name");
-
-            String image_url = test.getString("image_url");
-            String url = test.getString("url");
-            String display_phone = test.getString("display_phone");
-            int review_count = test.getInt("review_count");
-
-            JSONArray display_address = test.getJSONObject("location")
-                    .getJSONArray("display_address");
-            String address = (String) display_address.get(0) + ", "
-                    + display_address.get(1);
             try {
-                // this is to check if an address has an apartment number/suite number
-                String address_3 = (String) display_address.get(2);
-                address = address + " " + address_3;
+                JSONObject test = (JSONObject) businesses.get(i);
+
+                String id = test.getString("id");
+
+                String name = test.getString("name");
+
+
+                String image_url = test.getString("image_url");
+                String url = test.getString("url");
+                String display_phone = test.getString("display_phone");
+                int review_count = test.getInt("review_count");
+
+                JSONArray display_address = test.getJSONObject("location")
+                        .getJSONArray("display_address");
+                String address = (String) display_address.get(0) + ", "
+                        + display_address.get(1);
+                try {
+                    // this is to check if an address has an apartment number/suite number
+                    String address_3 = (String) display_address.get(2);
+                    address = address + " " + address_3;
+                } catch (JSONException e) {
+
+                    // do nothing
+                }
+
+
+                double rating = test.getDouble("rating");
+
+                // getting the category
+                // this only gets one cateogry; we can add more later
+                JSONArray allCategories = test.getJSONArray("categories");
+                JSONObject category = (JSONObject) allCategories.get(0);
+                String category_name = category.getString("alias");
+
+                char[] price_array = test.getString("price").toCharArray();
+                int length = price_array.length;
+                String price = String.valueOf(length);
+
+                bi.add(new BusinessItem(id, name, image_url,url,display_phone,review_count,
+                        address,rating,category_name, price));
             } catch (JSONException e) {
-                // do nothing
+                Log.e(TAG, "parseSearchJson: We crashed at " +i );
             }
-            Log.e("TEST", "parseSearchJson: "+ address);
 
-            double rating = test.getDouble("rating");
 
-            // getting the category
-            // this only gets one cateogry; we can add more later
-            JSONArray allCategories = test.getJSONArray("categories");
-            JSONObject category = (JSONObject) allCategories.get(0);
-            String category_name = category.getString("alias");
-
-            char[] price_array = test.getString("price").toCharArray();
-            int length = price_array.length;
-            String price = String.valueOf(length);
-
-            bi.add(new BusinessItem(id, name, image_url,url,display_phone,review_count,
-                    address,rating,category_name, price));
         }
+
+
 
 
         return bi;
