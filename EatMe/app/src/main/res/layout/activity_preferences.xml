@@ -60,13 +60,21 @@
         android:text="@string/rating_label"
         />
 
+    <ImageView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_margin="4dp"
+        android:layout_gravity="center_vertical"
+        android:src="@mipmap/stars"
+        />
+
     <Spinner
         android:id="@+id/spinnerRating"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:entries="@array/rating_range_array"
-        android:layout_gravity="center"
-        />
+        android:layout_gravity="center" />
+
     <Button
         android:id="@+id/enterButton"
         android:layout_width="145dp"
